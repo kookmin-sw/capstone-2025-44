@@ -1,0 +1,39 @@
+import { styled } from "styled-components";
+
+import { PostListItem } from "@/components/post/post-list-item";
+import { useGetMypostList } from "@/hooks/queries/useGetMypostList";
+
+export const MypageList = ({ type }: { type: string }) => {
+  const { data } = useGetMypostList(type);
+
+  return (
+    <Wrapper>
+      {data?.map((item, index) => (
+        <PostListItem
+          key={index}
+          postId={item.postId}
+          title={item.title}
+          location={item.location}
+          startDate={item.startDate}
+          pay={item.pay}
+          status={item.status}
+          currentApplicant={item.currentApplicant}
+          maxNumOfPeople={item.maxNumOfPeople}
+          writerId={item.writerInfo.profileId}
+          writerProfileImg={item.writerInfo.profileImage}
+          deleted={item.deleted}
+          category={item.categoryId}
+        />
+      ))}
+    </Wrapper>
+  );
+};
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #d9d9d9;
+`;

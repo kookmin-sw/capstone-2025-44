@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "761364583261",
+    "firebase_url": "https://k-eum2023-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "k-eum2023",
+    "storage_bucket": "k-eum2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761364583261:android:6d38f947cafb39fa0f8eb4",
+        "android_client_info": {
+          "package_name": "com.sese.eum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761364583261-4qtot7adh00k37f71ipn087pkb31i354.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ0MNUD2Fd2G31O_R-5CFFFtZhwdpvb38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761364583261-4qtot7adh00k37f71ipn087pkb31i354.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "761364583261-nd511ss7gqqng0cp7i0ch6pikb8d90ti.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kr.k-eum.App"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761364583261:android:931ba39a3435d8270f8eb4",
+        "android_client_info": {
+          "package_name": "time.pay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761364583261-4qtot7adh00k37f71ipn087pkb31i354.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ0MNUD2Fd2G31O_R-5CFFFtZhwdpvb38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761364583261-4qtot7adh00k37f71ipn087pkb31i354.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "761364583261-nd511ss7gqqng0cp7i0ch6pikb8d90ti.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kr.k-eum.App"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

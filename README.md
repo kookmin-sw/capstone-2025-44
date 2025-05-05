@@ -18,12 +18,11 @@
       
 
 #### ✅ 시간은행 이용방법
-예를 들어, 커뮤니티에서 "조명 갈아주세요, 거래시간:30분" 을 의뢰한 사람은 도움을 준 사람에게 30분을 주게 됩니다.  
-이 시스템에서 개개인의 시간을 은행에 기록하고 관리합니다.
+
 
 #### ✅ 시간은행이 필요한 이유!
-고립된 현대사회, 이웃의 개념이 사라진 현재 고독사 인구 수가 매년 증가 추세에 있습니다.  
-이웃간의 교류를 활성화 하여 공동체의 개념을 되살리는 것 만이 해결방법입니다.
+고립된 현대사회, 이웃의 개념이 사라진 현재 고독사 인구 수가 매년 증가 추세에 있다.  
+이웃간의 교류를 활성화 하여 공동체의 개념을 되살리는 것 만이 해결방법이다.
   
 
 <br>  
@@ -134,11 +133,3 @@ $ npm
 
 <!-- <div align=center> 
  
- <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
- <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
- <br>
- 
- <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white">
- <img src="https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white">
- <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
-

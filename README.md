@@ -129,7 +129,6 @@ $ npm
 # ✅  자료
 - 📒 [포스터](https://drive.google.com/file/d/1O5rynh7p7e_r7tfz43ZDFO_aZL76Jxs3/view?usp=sharing)
 - 📒 [최종발표 PPT](https://drive.google.com/file/d/1foxIw_RV7WrvAODMt029uvwp2Ok4uQWr/view?usp=sharing)
-- 📒 [화면 명세 FIGMA](https://www.figma.com/design/NFf8cyvJen9I37cYv2ZQzn/%ED%96%87%EC%82%B4-%EC%B0%BD%EA%B3%A0_veta?node-id=836%3A7498&t=G4qg1GNqj9hlkFON-1)
 
 
 <!-- <div align=center> 

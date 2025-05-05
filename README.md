@@ -95,7 +95,7 @@
 
 | 역할                     | 종류                                                                                 |
 |------------------------|------------------------------------------------------------------------------------|
-| Framework              | ![Flutter](https://img.shields.io/badge/FLUTTER-02569B?style=for-the-badge&logo=flutter&logoColor=white)  |
+| Framework              | ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)  |
 | Database               | ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white) |
 | Programming Language   | ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)            |
 | Device                 | ![Android](https://img.shields.io/badge/ANDROID-34A853?style=for-the-badge&logo=android&logoColor=white)            |

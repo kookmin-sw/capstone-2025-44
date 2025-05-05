@@ -1,7 +1,6 @@
 # 시간은행 (2025 다학제간캡스톤디자인1 44팀)
 > UI, UX 수정
-
-> 기존 문제점 수정 및 추가적 기능 도입
+> 기존 문제점 및 추가적 기능 도입
 
 이 프로젝트를 통해 2023학년도 캡스톤디자인1 수업으로부터 매년 개발되어온 기존의 '타임페이' 어플의  
 문제점을 개선하고 앱의 기능 추가를 통해 성북구 정릉 3동 주민들의 앱 사용을 유도했다.
@@ -44,7 +43,7 @@
 ## ✅   소개 & 시연 영상
 이미지 클릭 시 유튜브로 이동합니다.  
 
-[![매듭창고 프로토 영상]()](url)
+[![유튜브 영상]()](url)
 
 <hr/><br>
 
@@ -54,11 +53,10 @@
 <table>
     <tr>
         <th><a href="https://github.com/">박종신</a><br></th>
-        <th><a href="https://github.com/">류현석</a><br>20191586</th>
+        <th><a href="https://github.com/masulsada">류현석</a><br>20191586</th>
         <th><a href="https://github.com/">양채훈</a><br></th>
         <th><a href="https://github.com/">김명환</a><br></th>
     </tr>
-    
     <tr>
         <td><img src="" alt="박종신" width="120"></td>
         <td><img src="https://avatars.githubusercontent.com/u/54922643?s=400&u=e067f3e58d8bf6c13ba3abb11e66fa63d023ce1e&v=4" alt="류현석" width="120"></td>
@@ -79,7 +77,6 @@
         <th><a href="https://github.com/">최우상</a><br></th>
         <th><a href="https://github.com/">진가준</a><br></th>
     </tr>
-    
     <tr>
         <td><img src="" alt="서민호" width="120"></td>
         <td><img src="" alt="최우상" width="120"></td>
@@ -110,7 +107,6 @@
 | Database            | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)                                                                                                                                   |
 | Programming Language| ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)                                |
 | Deploy             | ![Naver Cloud](https://img.shields.io/badge/Naver%20Cloud-03C75A?style=for-the-badge&logo=naver&logoColor=white)                                                                                                                     |
-| CI/CD              | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/-GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) |
 
 
 # 사용법
@@ -133,7 +129,6 @@ $ npm
 # ✅  자료
 - 📒 [포스터](https://drive.google.com/file/d/1O5rynh7p7e_r7tfz43ZDFO_aZL76Jxs3/view?usp=sharing)
 - 📒 [최종발표 PPT](https://drive.google.com/file/d/1foxIw_RV7WrvAODMt029uvwp2Ok4uQWr/view?usp=sharing)
-- 📒 [화면 명세 FIGMA](https://www.figma.com/design/NFf8cyvJen9I37cYv2ZQzn/%ED%96%87%EC%82%B4-%EC%B0%BD%EA%B3%A0_veta?node-id=836%3A7498&t=G4qg1GNqj9hlkFON-1)
 
 
 <!-- <div align=center> 
@@ -145,3 +140,4 @@ $ npm
  <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white">
  <img src="https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white">
  <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
+

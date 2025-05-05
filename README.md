@@ -43,7 +43,7 @@
 ## ✅   소개 & 시연 영상
 이미지 클릭 시 유튜브로 이동합니다.  
 
-[![매듭창고 프로토 영상]()](url)
+[![유튜브 영상]()](url)
 
 <hr/><br>
 
@@ -57,7 +57,6 @@
         <th><a href="https://github.com/">양채훈</a><br></th>
         <th><a href="https://github.com/">김명환</a><br></th>
     </tr>
-    
     <tr>
         <td><img src="" alt="박종신" width="120"></td>
         <td><img src="" alt="류현석" width="120"></td>
@@ -78,7 +77,6 @@
         <th><a href="https://github.com/">최우상</a><br></th>
         <th><a href="https://github.com/">진가준</a><br></th>
     </tr>
-    
     <tr>
         <td><img src="" alt="서민호" width="120"></td>
         <td><img src="" alt="최우상" width="120"></td>
@@ -109,7 +107,6 @@
 | Database            | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)                                                                                                                                   |
 | Programming Language| ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)                                |
 | Deploy             | ![Naver Cloud](https://img.shields.io/badge/Naver%20Cloud-03C75A?style=for-the-badge&logo=naver&logoColor=white)                                                                                                                     |
-| CI/CD              | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/-GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) |
 
 
 # 사용법

@@ -113,15 +113,21 @@
 ## 프론트엔드
 ### 로컬 실행 방법
 
-패키지 설치 및 앱 실행
+1. 저장소 복제
+
+2. Dependencies 설치
 ```
-$ npm run build
-$ npm run
+$ npm install
 ```
+3. 개발 서버 시작
+```
+$ npm start
+```
+
 ## 배포 방법
 앱 빌드
 ```
-$ npm
+$ npm run build
 ```
   
 

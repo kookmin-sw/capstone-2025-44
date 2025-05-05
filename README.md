@@ -13,7 +13,7 @@
 ### ✅ 시간은행이란?
 시간은행은 고령화 사회로 접어들며 서로 단절되고 도움을 받지 못하는 상황을 해결하기 위해 시간을 교환하는 과정을 통해 이웃 간의 상호 지원과 교류를을 촉진하는 프로젝트이다.  
 <br>
-<img alt="image" src="">
+<img alt="image" src="https://drive.google.com/drive/folders/1RPxoBRvY3JC2dAueZRHEA7GXKKzx7vMa">
       
 
 #### ✅ 시간은행 이용방법

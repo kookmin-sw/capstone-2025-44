@@ -1,6 +1,7 @@
 # 시간은행 (2025 다학제간캡스톤디자인1 44팀)
 > UI, UX 수정
-> 기존 문제점 및 추가적 기능 도입
+
+> 기존 문제점 수정 및 추가적 기능 도입
 
 이 프로젝트를 통해 2023학년도 캡스톤디자인1 수업으로부터 매년 개발되어온 기존의 '타임페이' 어플의  
 문제점을 개선하고 앱의 기능 추가를 통해 성북구 정릉 3동 주민들의 앱 사용을 유도했다.
@@ -60,7 +61,7 @@
     
     <tr>
         <td><img src="" alt="박종신" width="120"></td>
-        <td><img src="" alt="류현석" width="120"></td>
+        <td><img src="https://avatars.githubusercontent.com/u/54922643?s=400&u=e067f3e58d8bf6c13ba3abb11e66fa63d023ce1e&v=4" alt="류현석" width="120"></td>
         <td><img src="" alt="양채훈" width="120"></td>
         <td><img src="" alt="김명환" width="120"></td>
     </tr>

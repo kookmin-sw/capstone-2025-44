@@ -1,0 +1,98 @@
+{
+  "short_name": "타임페이",
+  "name": "타임페이",
+  "description": "동네 주민들과 도움을 주고 받아요",
+  "icons": [
+    {
+      "src": "./icons/maskable-logo.png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/maskable-thumb.png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/android/android-launchericon-512-512.png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/android/android-launchericon-192-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icons/android/android-launchericon-144-144.png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "./icons/android/android-launchericon-96-96.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./icons/android/android-launchericon-72-72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "./icons/android/android-launchericon-48-48.png",
+      "sizes": "48x48"
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "images/screenshot1.jpg",
+      "sizes": "1695x3840",
+      "form_factor": "narrow",
+      "label": "mobile_screenshot1"
+    },
+    {
+      "src": "images/screenshot2.jpg",
+      "sizes": "1695x3840",
+      "form_factor": "narrow",
+      "label": "mobile_screenshot2"
+    },
+    {
+      "src": "images/screenshot3.jpg",
+      "sizes": "1695x3840",
+      "form_factor": "narrow",
+      "label": "mobile_screenshot3"
+    },
+    {
+      "src": "images/screenshot4.jpg",
+      "sizes": "1695x3840",
+      "form_factor": "narrow",
+      "label": "mobile_screenshot4"
+    },
+    {
+      "src": "images/screenshot5.jpg",
+      "sizes": "1695x3840",
+      "form_factor": "narrow",
+      "label": "mobile_screenshot5"
+    },
+    {
+      "src": "images/screenshot2.png",
+      "sizes": "2400x1600",
+      "form_factor": "wide",
+      "platform": "windows",
+      "label": "KMU"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#253659",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "categories": [
+    "lifestyle"
+  ],
+  "id": "타임페이",
+  "lang": "ko",
+  "dir": "ltr",
+  "scope": ".",
+  "launch_handler": {
+    "client_mode": "auto"
+  }
+}

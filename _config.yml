@@ -1,6 +1,4 @@
-title: 44조 타임페이
-description: 2025 캡스톤 프로젝트입니다.
-theme: cayman
-author: 44조
-show_downloads: false
-markdown: kramdown
+title: 시간은행
+description: 2025 다학제간캡스톤디자인1 44조
+
+theme: jekyll-theme-cayman

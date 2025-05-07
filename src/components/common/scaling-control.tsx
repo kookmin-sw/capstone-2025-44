@@ -94,6 +94,6 @@ const ScaleIndicator = styled.div`
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 1.2rem;
-  z-index: 1000;
+  z-index: 2000;
   pointer-events: none;
 `;

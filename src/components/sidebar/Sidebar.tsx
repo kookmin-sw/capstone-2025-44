@@ -46,7 +46,7 @@ const SidebarOverlay = styled.div<{ isOpen: boolean }>`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  z-index: 1000;
   display: ${props => props.isOpen ? 'block' : 'none'};
 `;
 
@@ -57,7 +57,7 @@ const SidebarContainer = styled.div<{ isOpen: boolean }>`
   width: 300px;
   height: 100%;
   background-color: white;
-  z-index: 101;
+  z-index: 1001;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   transition: right 0.3s ease;
   display: flex;

@@ -7,7 +7,6 @@ import { useState } from "react";
 export const ContactPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // 定义菜单项
   const menuItems = [
     { id: 1, title: "홈", path: "/" },
     { id: 2, title: "공지사항", path: "/notice" },
@@ -28,8 +27,8 @@ export const ContactPage = () => {
       <AppBar style={{ backgroundColor: colorTheme.blue900 }}>
         <AppBar.AppBarNavigate
           style={{
-            paddingBottom: "1.06rem",
-            paddingTop: "2.944rem",
+            paddingBottom: "1.0rem",
+            paddingTop: "1.7rem",
             paddingLeft: "1.94rem",
             display: "flex",
             justifyContent: "space-between",
@@ -99,7 +98,7 @@ const ContactSection = styled.div`
 `;
 
 const ContactTitle = styled.h2`
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: ${colorTheme.blue900};
   margin-bottom: 1.5rem;
 `;
@@ -112,19 +111,40 @@ const ContactInfo = styled.div`
 
 const InfoItem = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 `;
 
 const InfoLabel = styled.span`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: ${colorTheme.blue900};
   width: 100px;
+  flex-shrink: 0;
+  
+  @media (max-width: 768px) {
+    width: 70px;
+    font-size: 1.2rem;
+  }
 `;
 
 const InfoValue = styled.span`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: ${colorTheme.shade};
+  word-break: break-all;
+  flex: 1;
+  line-height: 1.4;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    white-space: normal;
+  }
 `;
 
 const MenuButton = styled.button`

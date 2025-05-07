@@ -95,7 +95,7 @@ export const LoginPage = () => {
             </Button>
           )}
         </div> */}
-        <Header>빠른 로그인</Header>
+        <Header>로그인</Header>
         <LoginIcon width="5rem" />
         {isLoading ? (
           <>로딩중...</>

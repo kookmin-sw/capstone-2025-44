@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@capacitor/android": "^7.2.0",
+    "@capacitor/cli": "^7.2.0",
+    "@capacitor/core": "^7.2.0",
     "@react-oauth/google": "^0.12.1",
     "@stomp/stompjs": "^7.0.0",
     "@tanstack/react-query": "^5.17.19",

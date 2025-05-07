@@ -54,17 +54,6 @@ export const NoticePage = () => {
     { id: 4, title: "연락처", path: "/contact" }
   ];
 
-  //  자동으로 이미지 전환
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === noticeImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [noticeImages.length]);
-
   const handleImageClick = (link: string) => {
     window.open(link, '_blank');
   };
@@ -137,29 +126,43 @@ export const NoticePage = () => {
       {
         id: 1,
         title: "시스템 유지관리 공지",
-        content: "시스템 유지 관리를 수행하기 위해 다음 기간 내에 당사 웹 사이트에 대한 액세스가 중단됩니다.",
-        date: "2025년 12월 31일 수요일 1:00 - 2:00",
+        content: "시스템 유지 관리를 수행하기 위해 다음 기간 내에 당사 웹 사이트에 대한 액세스가 중단됩니다.2025년 12월 31일 수요일 1:00 - 2:00",
+        date: "2000-01-01",
       },
       {
         id: 2,
-        title: "성북구 생활문화 플랫폼",
-        content: "일상의 다양한 취향이 통하는 성북인들이 함께 만드는 생활문화",
+        title: "title",
+        content: "content",
+        date: "2000-01-01",
+      },
+      {
+        id: 3,
+        title: "title",
+        content: "content",
+        date: "2000-01-01",
+      },
+      {
+        id: 4,
+        title: "title",
+        content: "content",
+        date: "2000-01-01",
+      },
+      {
+        id: 5,
+        title: "title",
+        content: "content",
         date: "2000-01-01",
       },
     ]);
   }, []);
 
   return (
-    <Wrapper 
-      ref={wrapperRef} 
-      onTouchStart={handlePageTouchStart}
-      onTouchEnd={handlePageTouchEnd}
-    >
+    <Wrapper>
       <AppBar style={{ backgroundColor: colorTheme.blue900 }}>
         <AppBar.AppBarNavigate
           style={{
-            paddingBottom: "1.06rem",
-            paddingTop: "2.944rem",
+            paddingBottom: "1.0rem",
+            paddingTop: "1.7rem",
             paddingLeft: "1.94rem",
             display: "flex",
             justifyContent: "space-between",
@@ -180,52 +183,54 @@ export const NoticePage = () => {
           </MenuButton>
         </AppBar.AppBarNavigate>
       </AppBar>
-      <ImageNotice>
-        <ImageNoticeContent>
-          <ImageSlider 
-            ref={sliderRef}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <SliderButton onClick={handlePrevClick} position="left">
-              &#8249;
-            </SliderButton>
-
-            {noticeImages.map((image, index) => (
-              <SliderImage
-                key={image.id}
-                src={image.src}
-                alt={image.alt}
-                isVisible={index === currentImageIndex}
-                onClick={() => handleImageClick(image.link)}
-              />
-            ))}
-
-            <SliderButton onClick={handleNextClick} position="right">
-              &#8250;
-            </SliderButton>
-          </ImageSlider>
-          <ImageIndicators>
-            {noticeImages.map((_, index) => (
-              <Indicator 
-                key={index} 
-                active={index === currentImageIndex}
-                onClick={() => setCurrentImageIndex(index)}
-              />
-            ))}
-          </ImageIndicators>
-        </ImageNoticeContent>
-      </ImageNotice>
-      <NoticeList>
-        {notices.map((notice) => (
-          <NoticeItem key={notice.id}>
-            <NoticeTitle>{notice.title}</NoticeTitle>
-            <NoticeContent>{notice.content}</NoticeContent>
-            <NoticeDate>{notice.date}</NoticeDate>
-          </NoticeItem>
-        ))}
-      </NoticeList>
-
+      <ContentWrapper>
+        <ImageNotice>
+          <ImageNoticeContent>
+            <ImageSlider 
+              ref={sliderRef}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              <SliderContainer currentIndex={currentImageIndex}>
+                {noticeImages.map((image) => (
+                  <SliderImage
+                    key={image.id}
+                    src={image.src}
+                    alt={image.alt}
+                    onClick={() => handleImageClick(image.link)}
+                  />
+                ))}
+              </SliderContainer>
+            </ImageSlider>
+            <ButtonContainer>
+              <SliderButton onClick={handlePrevClick} position="left">
+                &#8249;
+              </SliderButton>
+              <ImageIndicators>
+                {noticeImages.map((_, index) => (
+                  <Indicator 
+                    key={index} 
+                    active={index === currentImageIndex}
+                    onClick={() => setCurrentImageIndex(index)}
+                  />
+                ))}
+              </ImageIndicators>
+              <SliderButton onClick={handleNextClick} position="right">
+                &#8250;
+              </SliderButton>
+            </ButtonContainer>
+          </ImageNoticeContent>
+        </ImageNotice>
+        <NoticeList>
+          {notices.map((notice) => (
+            <NoticeItem key={notice.id}>
+              <NoticeTitle>{notice.title}</NoticeTitle>
+              <NoticeContent>{notice.content}</NoticeContent>
+              <NoticeDate>{notice.date}</NoticeDate>
+            </NoticeItem>
+          ))}
+        </NoticeList>
+      </ContentWrapper>
       <Sidebar 
         isOpen={isSidebarOpen} 
         onClose={closeSidebar} 
@@ -236,8 +241,6 @@ export const NoticePage = () => {
 };
 
 const Wrapper = styled.div`
-  overflow-y: scroll;
-  overflow: hidden;
   width: 100%;
   height: 100%;
   display: flex;
@@ -245,12 +248,31 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
+//스크롤바를 숨기지만 스크롤 기능은 유지（phone）.
+const ContentWrapper = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    &::-webkit-scrollbar {
+      width: 0;
+      display: none;
+    }
+    
+    scrollbar-width: none;
+    
+    -ms-overflow-style: none;
+  }
+`;
+
 const ImageNotice = styled.div`
   width: 100%;
   padding: 0;
   background-color: transparent;
   margin-bottom: 1rem;
-  height: 50vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -272,10 +294,19 @@ const ImageSlider = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 
-const SliderImage = styled.img<{ isVisible: boolean }>`
-  position: absolute;
+const SliderContainer = styled.div<{ currentIndex: number }>`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transform: translateX(${props => -props.currentIndex * 100}%);
+  transition: transform 0.5s ease-in-out;
+`;
+
+const SliderImage = styled.img`
+  flex-shrink: 0;
   width: 100%;
   height: 100%;
   object-fit: fill;
@@ -285,19 +316,12 @@ const SliderImage = styled.img<{ isVisible: boolean }>`
   cursor: pointer;
   padding: 0;
 
-  opacity: ${props => (props.isVisible ? 1 : 0)};
-  transition: opacity 0.6s ease-in-out;
-  pointer-events: ${props => (props.isVisible ? "auto" : "none")};
-
   @media (max-width: 768px) {
     height: 100%;
   }
 `;
 
-
 const SliderButton = styled.button<{ position: 'left' | 'right' }>`
-  position: absolute;
-  ${props => props.position}: 16px;
   background: rgba(255, 255, 255, 0.7);
   border: none;
   border-radius: 50%;
@@ -312,6 +336,7 @@ const SliderButton = styled.button<{ position: 'left' | 'right' }>`
   transition: background-color 0.2s ease, transform 0.2s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   z-index: 10;
+  margin: 0 1rem;
 
   &:hover {
     background: rgba(255, 255, 255, 0.9);
@@ -322,9 +347,17 @@ const SliderButton = styled.button<{ position: 'left' | 'right' }>`
     width: 36px;
     height: 36px;
     font-size: 1.5rem;
+    margin: 0 0.5rem;
   }
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+`;
 
 const ImageIndicators = styled.div`
   display: flex;
@@ -381,21 +414,24 @@ const NoticeItem = styled.div`
 `;
 
 const NoticeTitle = styled.div`
-  font-size: 2.0rem;
+  font-size: 2.2rem;
   font-weight: bold;
   color: ${colorTheme.blue900};
+  word-break: keep-all;
   
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 `;
 
 const NoticeContent = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: ${colorTheme.shade};
+  word-break: keep-all;
+  line-height: 1.4;
   
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -421,4 +457,5 @@ const MenuButton = styled.button`
 
 const MenuIcon = styled.span`
   color: white;
-  font-size: 1.8rem;`;
+  font-size: 1.8rem;
+`;

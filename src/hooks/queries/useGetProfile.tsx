@@ -49,7 +49,7 @@ export const createGuestProfile = (): ProfileData => {
     gender: "male",
     address: "정릉 3동",
     birth: "2000-01-01",
-    ageRange: 23,
+    ageRange: 2,
     accountNumber: "",
     profileImage: "/icons/guest.png",
     blocked: false,

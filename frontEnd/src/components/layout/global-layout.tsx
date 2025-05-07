@@ -40,17 +40,19 @@ export const GlobalLayout = () => {
   const showBottomNav =
     currentUrl[1] === "post" ||
     (currentUrl[1] === "chat" && !currentUrl[2]) ||
-    currentUrl[1] === "mypage";
+    currentUrl[1] === "mypage"||
+    currentUrl[1] === "notice";
 
   return (
     <div
       style={{
         width: "100%",
-        minHeight: "300vh",   //스크롤위해 임의조정
+        minHeight: "100vh",   //스크롤위해 임의조정
         paddingBottom: showBottomNav ? "3.5rem" : "0",
         position: "relative",
         overflow: "auto",
         WebkitOverflowScrolling: "touch",
+        boxSizing: "border-box",
       }}
     >
       <div

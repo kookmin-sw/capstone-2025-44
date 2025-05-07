@@ -14,7 +14,7 @@
 ### ✅ 시간은행이란?
 시간은행은 고령화 사회로 접어들며 서로 단절되고 도움을 받지 못하는 상황을 해결하기 위해 시간을 교환하는 과정을 통해 이웃 간의 상호 지원과 교류를을 촉진하는 프로젝트이다.  
 <br>
-<img alt="image" src="https://github.com/user-attachments/assets/8fbfff5e-5930-4006-a073-ad4ec9998419" width="600">
+<img alt="image" src="https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530" width="500">
       
 
 #### ✅ 시간은행 이용방법
@@ -52,13 +52,13 @@
 
 <table>
     <tr>
-        <th><a href="https://github.com/">박종신</a><br></th>
+        <th><a href="https://github.com/">박종신</a><br>20203075</th>
         <th><a href="https://github.com/masulsada">류현석</a><br>20191586</th>
-        <th><a href="https://github.com/">양채훈</a><br></th>
-        <th><a href="https://github.com/">김명환</a><br></th>
+        <th><a href="https://github.com/">양채훈</a><br>20203098</th>
+        <th><a href="https://github.com/">김명환</a><br>20212966</th>
     </tr>
     <tr>
-        <td><img src="" alt="박종신" width="120"></td>
+        <td><img src="https://github.com/user-attachments/assets/a95aa8bb-7bdd-448d-a796-2a8837ae5a70" alt="박종신" width="120"></td>
         <td><img src="https://avatars.githubusercontent.com/u/54922643?s=400&u=e067f3e58d8bf6c13ba3abb11e66fa63d023ce1e&v=4" alt="류현석" width="120"></td>
         <td><img src="" alt="양채훈" width="120"></td>
         <td><img src="" alt="김명환" width="120"></td>
@@ -73,13 +73,13 @@
 
 <table>
     <tr>
-        <th><a href="https://github.com/">서민호</a><br></th>
-        <th><a href="https://github.com/">최우상</a><br></th>
-        <th><a href="https://github.com/">진가준</a><br></th>
+        <th><a href="https://github.com/">서민호</a><br>20203078</th>
+        <th><a href="https://github.com/dntkd">최우상</a><br>20163167</th>
+        <th><a href="https://github.com/">진가준</a><br>20215213</th>
     </tr>
     <tr>
         <td><img src="" alt="서민호" width="120"></td>
-        <td><img src="" alt="최우상" width="120"></td>
+        <td><img src="https://github.com/user-attachments/assets/9cf74ccf-e795-495c-be47-9202f9b5489c" alt="최우상" width="120"></td>
         <td><img src="" alt="진가준" width="120"></td>
     </tr>
     <tr>
@@ -133,8 +133,8 @@ $ npm run build
 
 
 # ✅  자료
-- 📒 [포스터](https://drive.google.com/file/d/1O5rynh7p7e_r7tfz43ZDFO_aZL76Jxs3/view?usp=sharing)
-- 📒 [최종발표 PPT](https://drive.google.com/file/d/1foxIw_RV7WrvAODMt029uvwp2Ok4uQWr/view?usp=sharing)
+- 📒 [포스터](https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530)
+- 📒 [최종발표 PPT]()
 
 
 <!-- <div align=center> 

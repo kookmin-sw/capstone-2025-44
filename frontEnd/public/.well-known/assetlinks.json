@@ -1,0 +1,15 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.web.timepay2024_1.twa",
+      "sha256_cert_fingerprints": [
+        "CC:F7:52:0C:F5:D7:79:70:D0:BF:D9:60:63:CE:BD:C7:BD:47:F9:23:87:87:64:56:5A:AB:51:66:08:F3:DB:74",
+        "62:C5:A8:22:D9:47:70:86:DD:A1:08:7D:70:D1:60:39:75:D1:47:A8:9F:8E:8A:F2:E0:B6:D5:1D:73:29:66:D1",
+
+        "65:22:F6:36:CA:CD:19:03:17:4A:B9:F3:91:F5:A8:A1:01:BE:38:B8:1B:A9:69:70:3F:4E:D3:F8:B8:7E:9E:82"
+      ]
+    }
+  }
+]

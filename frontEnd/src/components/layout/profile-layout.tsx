@@ -1,0 +1,34 @@
+import { createContext, ReactNode, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { ProfileData } from "@/api/types/profile-type";
+import { useGetProfile } from "@/hooks/queries/useGetProfile";
+
+export const ProfileContext = createContext<ProfileData | null>(null);
+
+export const ProfileLayout = ({ children }: { children: ReactNode }) => {
+  const [_, setProfile] = useState<ProfileData>({
+    userId: 0,
+    nickName: "",
+    gender: "male",
+    address: "",
+    birth: "",
+    ageRange: 0,
+    accountNumber: "",
+    profileImage: "",
+    blocked: false,
+    dealCount: 0,
+  });
+
+  const navigate = useNavigate();
+  const role = localStorage.getItem("role");
+
+  const { data } = useGetProfile();
+
+  useEffect(() => {
+    if (!role || role === "ROLE_TEMPORARY_USER") navigate("/profile/welcome");
+    else setProfile(data!);
+  }, []);
+
+  return <>{children}</>;
+};

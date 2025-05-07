@@ -125,6 +125,6 @@ const NavigateButton = styled.button`
 
 const ButtonText = styled.span`
   width: 100%;
-  font-size: 1.15rem;
+  font-size: 0.9rem;
   color: ${colorTheme.shade};
 `;

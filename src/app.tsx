@@ -2,8 +2,6 @@ import { RecoilRoot } from "recoil";
 import { useEffect } from "react";
 import { Routers } from "./routes";
 import { GlobalStyle } from "./style/global";
-import { ScalingControl } from "./components/common/scaling-control";
-import { ScalingWrapper } from "./components/scaling/scaling-wrapper";
 
 export const App = () => {
   useEffect(() => {
@@ -21,10 +19,7 @@ export const App = () => {
   return (
     <RecoilRoot>
       <GlobalStyle />
-      <ScalingControl />
-      <ScalingWrapper>
-        <Routers />
-      </ScalingWrapper>
+      <Routers />
     </RecoilRoot>
   );
 };

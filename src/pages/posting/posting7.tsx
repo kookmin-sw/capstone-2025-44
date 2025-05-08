@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { styled } from "styled-components";
 
-import { BottomFixed } from "@/components/common/bottom-fixed";
 import { PostingAppBar } from "@/components/posting/posting-app-bar";
 import { PostingBoldText } from "@/components/posting/posting-bold-text";
 import { PostingInput } from "@/components/posting/posting-input";
@@ -24,6 +23,20 @@ export const Posting7 = () => {
     });
   };
 
+  const handlePrev = () => {
+    handleSave();
+    navigate(-1);
+  };
+
+  const handleNext = () => {
+    if (!title.length) {
+      setIsError(true);
+      return;
+    }
+    handleSave();
+    navigate("/posting/8");
+  };
+
   useEffect(() => {
     if (isError && title !== "") {
       setIsError(false);
@@ -32,8 +45,13 @@ export const Posting7 = () => {
 
   return (
     <PageContainer>
-      <PostingAppBar onCustomClick={() => handleSave()} nowPage={7} />
-      <PostingBoldText>활동 제목을 적어보세요</PostingBoldText>
+      <PostingAppBar 
+        onCustomClick={handleSave} 
+        nowPage={7}
+        onPrevClick={handlePrev}
+        onNextClick={handleNext}
+      />
+      <PostingBoldText>{'활동 제목을\n작성해주세요'}</PostingBoldText>
       <PostingInput.InputTitle
         value={title}
         setValue={setTitle}
@@ -41,49 +59,30 @@ export const Posting7 = () => {
         setIsError={setIsError}
       />
       {isError && <ErrorMsg>활동 제목은 필수 항목입니다</ErrorMsg>}
-      <BottomFixed alignDirection="row">
-        <BottomFixed.Button
-          color="blue"
-          onClick={() => {
-            handleSave();
-            navigate(-1);
-          }}
-        >
-          이전
-        </BottomFixed.Button>
-        <BottomFixed.Button
-          color="blue"
-          onClick={() => {
-            if (!title.length) {
-              setIsError(true);
-              return;
-            }
-            console.log(posting);
-
-            handleSave();
-            navigate("/posting/8");
-          }}
-        >
-          다음
-        </BottomFixed.Button>
-      </BottomFixed>
     </PageContainer>
   );
 };
+//활동 제목을 적어보세요 -> {'활동 제목을\n작성해주세요'}
 
 const PageContainer = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
+  white-space: pre-line;
   flex-direction: column;
+  padding-bottom: 20px;
 `;
+//white-space: pre-line; // 줄바꿈을 위해 추가
 
 const ErrorMsg = styled.div`
   color: ${colorTheme.orange400};
-  font-size: 1rem;
+  font-size: 1.7rem;
   text-align: center;
   font-weight: bold;
   line-height: 1.1rem;
   white-space: pre-line;
   margin-top: 1rem;
 `;
+//기존 1rem -> 1.7
+//http://localhost:3000/posting/7 활동제목은 필수 항목입니다 크기 조절
+

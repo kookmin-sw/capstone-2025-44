@@ -7,12 +7,22 @@ import { AppBar } from "@/components/common/app-bar";
 import { colorTheme } from "@/style/color-theme";
 
 export const PostingAppBar = (props: PostingAppBarProps) => {
+  const { onPrevClick, onNextClick } = props;
+
   return (
     <AppBar isBorderExist={true}>
       <KeyboardawareAppBarNavigate>
-        <AppBar.BackButton onCustomClick={props.onCustomClick} />
+        {onPrevClick ? (
+          <NavButton onClick={onPrevClick}>이전</NavButton>
+        ) : (
+          <AppBar.BackButton onCustomClick={props.onCustomClick} />
+        )}
         <AppBar.HeaderText>{props.nowPage}/8</AppBar.HeaderText>
-        <div style={{ width: "30px" }} />
+        {onNextClick ? (
+          <NavButton onClick={onNextClick}>다음</NavButton>
+        ) : (
+          <div style={{ width: "30px" }} />
+        )}
       </KeyboardawareAppBarNavigate>
       <StateLine>
         <NowStateLine
@@ -41,4 +51,18 @@ const KeyboardawareAppBarNavigate = styled(AppBar.AppBarNavigate)`
     @media (max-height: 400px) {
         display: none !important;
     }
-`
+    height: 7.0rem;
+    padding: 0 15px;
+`;
+
+const NavButton = styled.button`
+  background: none;
+  border: none;
+  color: ${colorTheme.blue900};
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 10px;
+  min-width: 70px;
+  text-align: center;
+`;

@@ -62,7 +62,6 @@ export const Posting7 = () => {
     </PageContainer>
   );
 };
-//활동 제목을 적어보세요 -> {'활동 제목을\n작성해주세요'}
 
 const PageContainer = styled.div`
   display: flex;
@@ -72,7 +71,6 @@ const PageContainer = styled.div`
   flex-direction: column;
   padding-bottom: 20px;
 `;
-//white-space: pre-line; // 줄바꿈을 위해 추가
 
 const ErrorMsg = styled.div`
   color: ${colorTheme.orange400};
@@ -83,6 +81,3 @@ const ErrorMsg = styled.div`
   white-space: pre-line;
   margin-top: 1rem;
 `;
-//기존 1rem -> 1.7
-//http://localhost:3000/posting/7 활동제목은 필수 항목입니다 크기 조절
-

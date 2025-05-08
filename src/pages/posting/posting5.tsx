@@ -115,9 +115,6 @@ const BalanceText = styled.div`
   text-align: center;
   margin: 3% 0px 3% 0px;
 `;
-//기존 1rem -> 1.4
-//http://localhost:3000/posting/5 잔액은 0타임입니다 크기 조절
-//width: 90%; text-align: center; 추가
 
 const ErrorMsg = styled.div`
   color: ${colorTheme.orange400};
@@ -130,8 +127,6 @@ const ErrorMsg = styled.div`
   white-space: pre-line;
   padding: 0.5rem;
 `;
-//기존 1rem -> 1.2
-//http://localhost:3000/posting/5 필요 인원을 1명 이상 정해주세요! 크기 조절
 
 const SumContainer = styled.div`
   display: flex;
@@ -150,13 +145,9 @@ const SumText = styled.span`
   font-weight: bold;
   color: black;
 `;
-//기존 1.11rem -> 2
-//http://localhost:3000/posting/5 합계, 타임 크기 조절
 
 const SumNumberText = styled.span`
   font-size: 3rem;
   font-weight: bold;
   color: ${colorTheme.orange400};
 `;
-//기존 2.22rem -> 3
-//http://localhost:3000/posting/5 타임(숫자) 크기 조절

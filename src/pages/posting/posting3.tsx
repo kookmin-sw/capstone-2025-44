@@ -139,6 +139,3 @@ const ErrorMsg = styled.div`
   font-weight: bold;
   line-height: 2rem;
 `;
-//기존 font 1rem -> 1.5
-//기존 line-height 1.1rem -> 2
-//http://localhost:3000/posting/3 정확한 시작 시간을 입력해주세요! 크기 조절

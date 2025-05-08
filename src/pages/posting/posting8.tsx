@@ -70,7 +70,6 @@ export const Posting8 = () => {
     </PageContainer>
   );
 };
-//활동 내용을 적어보세요-> {'활동 내용을\n작성해주세요'} 
 
 const PageContainer = styled.div`
   display: flex;
@@ -82,4 +81,3 @@ const PageContainer = styled.div`
   overflow-y: auto;         // 📌 입력 시 스크롤 가능하게
   padding-bottom: 20px;     // 📌 버튼 영역만큼 여백 확보
 `;
-//white-space: pre-line; // 줄바꿈을 위해 추가

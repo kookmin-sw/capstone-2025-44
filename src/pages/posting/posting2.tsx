@@ -69,5 +69,3 @@ const SelectDay = styled.span`
   width: 100%;
   text-align: center;
 `;
-//기존 1.39rem -> 2.3
-//http://localhost:3000/posting/2 일월 크기 조절

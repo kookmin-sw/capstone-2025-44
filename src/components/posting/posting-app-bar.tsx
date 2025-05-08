@@ -51,7 +51,7 @@ const KeyboardawareAppBarNavigate = styled(AppBar.AppBarNavigate)`
     @media (max-height: 400px) {
         display: none !important;
     }
-    height: 7.0rem;
+    height: 6.0rem;
     padding: 0 15px;
 `;
 
@@ -59,10 +59,10 @@ const NavButton = styled.button`
   background: none;
   border: none;
   color: ${colorTheme.blue900};
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 600;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 4px 8px;
   min-width: 70px;
   text-align: center;
 `;

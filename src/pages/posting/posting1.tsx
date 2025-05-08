@@ -23,6 +23,11 @@ export const Posting1 = () => {
     });
   };
 
+  const handlePrev = () => {
+    handleSave();
+    navigate(-1);
+  };
+
   const handleNext = () => {
     if (!location.length) {
       setIsError(true);
@@ -43,6 +48,7 @@ export const Posting1 = () => {
       <PostingAppBar 
         onCustomClick={() => resetRecoil()} 
         nowPage={1}
+        onPrevClick={handlePrev}
         onNextClick={handleNext}
       />
       <PostingBoldText>위치를 입력해 주세요</PostingBoldText>
@@ -62,6 +68,7 @@ const PageContainer = styled.div`
   width: 100%;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 20px;
 `;
 
 const ErrorMsg = styled.div`
@@ -73,5 +80,3 @@ const ErrorMsg = styled.div`
   white-space: pre-line;
   margin-top: 2rem;
 `;
-//기존 1rem -> 1.7
-//http://localhost:3000/posting/1 위치 입력은 필수 항목입니다 크기 조절

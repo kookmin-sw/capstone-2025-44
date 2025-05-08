@@ -119,5 +119,3 @@ const ErrorMsg = styled.div`
   white-space: pre-line;
   margin-bottom: 1rem;
 `;
-//기존 1rem -> 1.7
-//http://localhost:3000/posting/6 항목선택은 필수입니다 크기 조절

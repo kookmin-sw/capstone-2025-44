@@ -65,7 +65,7 @@
 
 | 이름 | 역할 | 프로필 |
 |------|------|--------|
-| [박종신](https://github.com/) | 🧑‍💻 Infra | <img src="github.com/user-attachments/assets/a95aa8bb-7bdd-448d-a796-2a8837ae5a70" alt="박종신" width="120" /> |
+| [박종신](https://github.com/) | 🧑‍💻 Infra | <img src="https://github.com/user-attachments/assets/a95aa8bb-7bdd-448d-a796-2a8837ae5a70" alt="박종신" width="120" /> |
 | [류현석](https://github.com/masulsada) | 🎨 UI/UX, Frontend | ![](https://avatars.githubusercontent.com/u/54922643?v=4) |
 | [양채훈](https://github.com/) | 🛠️ Backend | ![](https://i.ibb.co/YbdXpDQ/profile2.png) |
 | [김명환](https://github.com/) | 📱 Frontend | ![](https://i.ibb.co/fYpt03F/profile3.png) |

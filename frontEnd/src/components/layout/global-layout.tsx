@@ -10,61 +10,44 @@ export const GlobalLayout = () => {
 
   const location = useLocation();
   const [currentUrl, setCurrentUrl] = useState<string[]>([]);
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
-
-  //키보드 수정
-  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
 
   useEffect(() => {
     setCurrentUrl(getCurrentPage(location.pathname));
   }, [location.pathname]);
 
-  //키보드 감지
-  useEffect(() => {
-  const handleResize = () => {
-    const visualHeight = window.visualViewport?.height || window.innerHeight;
-    const isOpen = visualHeight < window.innerHeight - 100;
-    setIsKeyboardOpen(isOpen);
-    console.log("뷰포트 높이:", visualHeight, "키보드 열림:", isOpen);
-  };
-
-  window.visualViewport?.addEventListener("resize", handleResize);
-  return () => window.visualViewport?.removeEventListener("resize", handleResize);
-}, []);
-
-
   function getCurrentPage(url: string): string[] {
     return url.split("/");
   }
-
-  const showBottomNav =
-    currentUrl[1] === "post" ||
-    (currentUrl[1] === "chat" && !currentUrl[2]) ||
-    currentUrl[1] === "mypage"||
-    currentUrl[1] === "notice";
 
   return (
     <div
       style={{
         width: "100%",
-        minHeight: "100vh",   //스크롤위해 임의조정
-        paddingBottom: showBottomNav ? "3.5rem" : "0",
+        height: "100vh",
+        minHeight: "450px",
         position: "relative",
-        overflow: "auto",
-        WebkitOverflowScrolling: "touch",
-        boxSizing: "border-box",
+        overflow: "hidden",
       }}
     >
       <div
         style={{
           width: "100%",
-          minHeight: "100%",
+          height:
+            currentUrl[1] == "post" ||
+            (currentUrl[1] == "chat" && !currentUrl[2]) ||
+            currentUrl[1] == "mypage" ||
+            currentUrl[1] == "notice"
+              ? `calc(100vh - 3.5rem)`
+              : "100vh",
           position: "relative",
         }}
       >
         <Outlet />
       </div>
-      {showBottomNav && !isKeyboardOpen && <BottomNavigationBar />}
+      {(currentUrl[1] == "post" ||
+        (currentUrl[1] == "chat" && !currentUrl[2]) ||
+        currentUrl[1] == "mypage" ||
+        currentUrl[1] == "notice") && <BottomNavigationBar />}
     </div>
   );
 };

@@ -12,6 +12,8 @@
 > 🏘️ **정릉3동 주민자치회**의 「정릉3동 마을시간은행 활성화 사업」  
 > 🤝 동네 커뮤니티 기반 상호돌봄과 사회적 연결을 위한 시간 교환 프로그램!
 
+<img src="https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530" width="300" />
+
 ### ⏰ 시간은행이란?
 고령화, 1인가구 증가 등으로 인한 사회적 고립을 해결하기 위해,  
 사람들 간에 서로의 ‘**시간**’을 나누고 기록하여 공동체를 회복하는 서비스입니다.
@@ -54,23 +56,23 @@
 ---
 
 ## 🎥 시연 영상  
-> ▶️ 이미지를 클릭하면 유튜브 영상으로 이동합니다  
+> ▶️ 영상을 클릭해주세요 
 [![시연 영상](https://i.ibb.co/mJztTzY/youtube-thumbnail.png)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ---
 
 ## 👨‍👩‍👧‍👦 팀 소개  
-> 🗓️ 개발 기간: 2025.03.04 ~ 2025.06.20 (총 16주)
+> 🗓️ 개발 기간: 2025.03.04 ~ 
 
 | 이름 | 역할 | 프로필 |
 |------|------|--------|
 | [박종신](https://github.com/) | 🧑‍💻 Infra | <img src="https://github.com/user-attachments/assets/a95aa8bb-7bdd-448d-a796-2a8837ae5a70" alt="박종신" width="120" /> |
 | [류현석](https://github.com/masulsada) | 🎨 UI/UX, Frontend | <img src="https://avatars.githubusercontent.com/u/54922643?v=4" alt="류현석" width="120" /> |
-| [양채훈](https://github.com/) | 🛠️ Backend | <img src="" alt="류현석" width="120" /> |
-| [김명환](https://github.com/) | 📱 Frontend | <img src="https://avatars.githubusercontent.com/u/203513709?v=4" alt="류현석" width="120" /> |
-| [서민호](https://github.com/) | 🎨 UI/UX | <img src="https://media.discordapp.net/attachments/1350745027571355673/1369537168195981312/66311106.png?ex=681d89e1&is=681c3861&hm=19b8d36eb8f2475db2c14ef0bdb73cc314375bd3b4d3c4840f12192bd2745354&=&format=webp&quality=lossless&width=525&height=525" alt="류현석" width="120" /> |
-| [최우상](https://github.com/dntkd) | 🎨 UI/UX |<img src="https://github.com/user-attachments/assets/9cf74ccf-e795-495c-be47-9202f9b5489c" alt="류현석" width="120" /> |
-| [진가준](https://github.com/) | 📱 Frontend | <img src="" alt="류현석" width="120" /> |
+| [양채훈](https://github.com/) | 🛠️ Backend | <img src="" alt="양채훈" width="120" /> |
+| [김명환](https://github.com/) | 📱 Frontend | <img src="https://avatars.githubusercontent.com/u/203513709?v=4" alt="김명환" width="120" /> |
+| [서민호](https://github.com/) | 🎨 UI/UX | <img src="https://media.discordapp.net/attachments/1350745027571355673/1369537168195981312/66311106.png?ex=681d89e1&is=681c3861&hm=19b8d36eb8f2475db2c14ef0bdb73cc314375bd3b4d3c4840f12192bd2745354&=&format=webp&quality=lossless&width=525&height=525" alt="서민호" width="120" /> |
+| [최우상](https://github.com/dntkd) | 🎨 UI/UX |<img src="https://github.com/user-attachments/assets/9cf74ccf-e795-495c-be47-9202f9b5489c" alt="최우상" width="120" /> |
+| [진가준](https://github.com/) | 📱 Frontend | <img src="" alt="진가준" width="120" /> |
 
 ---
 
@@ -119,5 +121,5 @@ npm run build
 ---
 
 ## 📎 자료 다운로드
-- 🖼️ [포스터 보기](https://i.ibb.co/xmhsLTf/timebanking-concept.png)
+- 🖼️ [포스터 보기](https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530)
 - 🖥️ [최종 발표 PPT](https://example.com/ppt)

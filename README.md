@@ -1,98 +1,88 @@
-# 시간은행 (2025 다학제간캡스톤디자인1 44팀)
-> UI, UX 수정
 
-> 기존 문제점 및 추가적 기능 도입
+# ⏳ 시간은행 (2025 다학제간캡스톤디자인1 44팀)
+> 🎨 UI·UX 개선 중심의 커뮤니티 기반 시간 교환 플랫폼  
+> 🔧 기존 앱의 문제점 개선 + 주민 맞춤형 기능 추가
 
-이 프로젝트를 통해 2023학년도 캡스톤디자인1 수업으로부터 매년 개발되어온 기존의 '타임페이' 어플의  
-문제점을 개선하고 앱의 기능 추가를 통해 성북구 정릉 3동 주민들의 앱 사용을 유도했다.
+2023학년도 캡스톤디자인1 수업을 통해 제작된 '타임페이' 앱의 한계를 보완하고,  
+👥 사용자 피드백을 반영하여 **정릉3동 주민이 실제 사용할 수 있도록** 앱을 개선했습니다.
+
+---
+
+## 📌 프로젝트 소개  
+> 🏘️ **정릉3동 주민자치회**의 「정릉3동 마을시간은행 활성화 사업」  
+> 🤝 동네 커뮤니티 기반 상호돌봄과 사회적 연결을 위한 시간 교환 프로그램!
+
+<img src="https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530" width="450" />
+
+### ⏰ 시간은행이란?
+고령화, 1인가구 증가 등으로 인한 사회적 고립을 해결하기 위해,  
+사람들 간에 서로의 ‘**시간**’을 나누고 기록하여 공동체를 회복하는 서비스입니다.
+
+**💡 예시:**  
+🧰 A가 B의 창고를 정리해주면 1시간을 적립  
+💬 이후 B는 자신이 필요한 순간에 C에게 1시간의 도움 요청 가능  
+
+
+---
+
+## 👣 이용 방법
+1️⃣ 본인의 재능/도움 등록  
+2️⃣ 필요한 도움 요청 or 다른 사람의 요청 수락  
+3️⃣ 시간 거래자끼리의 채팅을 이용한 일정 조율  
+4️⃣ 완료 후 시간 적립/차감  
+
+---
+
+## ❓ 왜 필요한가요?
+- 🧓 **고령화**로 인한 노인 고립 증가  
+- 🏠 **1인가구**의 연결 단절  
+- 🌱 **공동체 회복**을 위한 새로운 방식 필요  
+- 💔 정릉3동 내 사회복지 사각지대 해소  
+
+---
+
+## 🛠️ 개발 기록 및 기능 개선
+- 🧭 **전체 UI/UX** → 사용 연령층을 고려하여 폰트 크기 확대  
+- 🧾 **공지사항** 추가 -> 긴급 공지 및 행정 안내 가능   
+- 📊 **기타 문제 수정** -> 키보드 활성화 시 화면 가림 문제 해결, 회원 가입 시 생년월일 입력 오류 해결
+- 🔔 **알람 수정** -> 안드로이드 환경에서 앱 알람이 오지 않는 문제 해결
+
+---
+
+## 🧱 시스템 구조도  
+<img src="https://github.com/user-attachments/assets/16e0c421-667e-4655-b2f4-942d828fc2a8" width="900" />
 <br>
+<img src="https://github.com/user-attachments/assets/43558da9-4499-407d-ba69-d8e09ac5b999" width="450" />
+<img src="https://github.com/user-attachments/assets/13730025-86dd-47ba-b639-4c94f55226e3" width="332" />
 
-## ✅  프로젝트 소개
->  정릉3동주민자치회의 **「정릉3동 마을시간은행 활성화 사업」** 은 생활권 동네 단위로 이뤄져있으며,  
->  마을시간은행은 서로 돕고 챙겨주는 복지 품앗이 활동으로 정릉3동의 브랜드 사업이다.
+---
 
-### ✅ 시간은행이란?
-시간은행은 고령화 사회로 접어들며 서로 단절되고 도움을 받지 못하는 상황을 해결하기 위해 시간을 교환하는 과정을 통해 이웃 간의 상호 지원과 교류를을 촉진하는 프로젝트이다.  
-<br>
-<img alt="image" src="https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530" width="500">
-      
+## 🎥 시연 영상  
+> ▶️ 영상을 클릭해주세요 
+[![시연 영상](.png)](https://www.youtube.com/)
 
-#### ✅ 시간은행 이용방법
+---
 
+## 👨‍👩‍👧‍👦 팀 소개  
+> 🗓️ 개발 기간: 2025.03.04 ~ 
 
-#### ✅ 시간은행이 필요한 이유!
-고립된 현대사회, 이웃의 개념이 사라진 현재 고독사 인구 수가 매년 증가 추세에 있다.  
-이웃간의 교류를 활성화 하여 공동체의 개념을 되살리는 것 만이 해결방법이다.
-  
+| 이름 | 역할 | 프로필 |
+|------|------|--------|
+| [박종신](https://github.com/) | 🧑‍💻 Infra | <img src="https://github.com/user-attachments/assets/a95aa8bb-7bdd-448d-a796-2a8837ae5a70" alt="박종신" width="120" /> |
+| [류현석](https://github.com/masulsada) | 🎨 UI/UX, Frontend | <img src="https://avatars.githubusercontent.com/u/54922643?v=4" alt="류현석" width="120" /> |
+| [양채훈](https://github.com/) | 🛠️ Backend | <img src="" alt="양채훈" width="120" /> |
+| [김명환](https://github.com/) | 📱 Frontend | <img src="https://avatars.githubusercontent.com/u/203513709?v=4" alt="김명환" width="120" /> |
+| [서민호](https://github.com/) | 🎨 UI/UX | <img src="https://media.discordapp.net/attachments/1350745027571355673/1369537168195981312/66311106.png?ex=681d89e1&is=681c3861&hm=19b8d36eb8f2475db2c14ef0bdb73cc314375bd3b4d3c4840f12192bd2745354&=&format=webp&quality=lossless&width=525&height=525" alt="서민호" width="120" /> |
+| [최우상](https://github.com/dntkd) | 🎨 UI/UX |<img src="https://github.com/user-attachments/assets/9cf74ccf-e795-495c-be47-9202f9b5489c" alt="최우상" width="120" /> |
+| [진가준](https://github.com/) | 📱 Frontend | <img src="" alt="진가준" width="120" /> |
 
-<br>  
+---
 
-## ✅  개발기록
+## 🧰 기술 스택
 
+### 📱 Front End
 
-### ✅  변경사항
-
-
-<br>
-
-## ✅    시스템 구조도
-
-![시스템 아키텍쳐]()
-
-
-## ✅   소개 & 시연 영상
-이미지 클릭 시 유튜브로 이동합니다.  
-
-[![유튜브 영상]()](url)
-
-<hr/><br>
-
-## ✅ 팀 소개
-> 개발기간 : 2025.03.04~
-
-<table>
-    <tr>
-        <th><a href="https://github.com/">박종신</a><br>20203075</th>
-        <th><a href="https://github.com/masulsada">류현석</a><br>20191586</th>
-        <th><a href="https://github.com/">양채훈</a><br>20203098</th>
-        <th><a href="https://github.com/">김명환</a><br>20212966</th>
-    </tr>
-    <tr>
-        <td><img src="https://github.com/user-attachments/assets/a95aa8bb-7bdd-448d-a796-2a8837ae5a70" alt="박종신" width="120"></td>
-        <td><img src="https://avatars.githubusercontent.com/u/54922643?s=400&u=e067f3e58d8bf6c13ba3abb11e66fa63d023ce1e&v=4" alt="류현석" width="120"></td>
-        <td><img src="" alt="양채훈" width="120"></td>
-        <td><img src="" alt="김명환" width="120"></td>
-    </tr>
-    <tr>
-        <td align="center">Infra</td>
-        <td align="center">Frontend, UI/UX</td>
-        <td align="center">Backend</td>
-        <td align="center">Frontend, UI/UX</td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-        <th><a href="https://github.com/">서민호</a><br>20203078</th>
-        <th><a href="https://github.com/dntkd">최우상</a><br>20163167</th>
-        <th><a href="https://github.com/">진가준</a><br>20215213</th>
-    </tr>
-    <tr>
-        <td><img src="" alt="서민호" width="120"></td>
-        <td><img src="https://github.com/user-attachments/assets/9cf74ccf-e795-495c-be47-9202f9b5489c" alt="최우상" width="120"></td>
-        <td><img src="" alt="진가준" width="120"></td>
-    </tr>
-    <tr>
-        <td align="center">Frontend, UI/UX</td>
-        <td align="center">Frontend, UI/UX</td>
-        <td align="center">Frontend</td>
-    </tr>
-</table>
-
-## ✅  기술 스택
-### Front End
-
-| 역할                     | 종류                                                                                 |
+| 구성                     | 기술                                                                                 |
 |------------------------|------------------------------------------------------------------------------------|
 | Framework              | ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white) ![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) |
 | Database               | ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white) |
@@ -101,41 +91,38 @@
 
 ### Back End
 
-| 역할                   | 종류                                                                                                                                                                                                                                   |
+| 구성                   | 기술                                                                                                                                                                                                                                   |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Framework           | ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)                       |
 | Database            | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)                                                                                                                                   |
 | Programming Language| ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)                                |
 | Deploy             | ![Naver Cloud](https://img.shields.io/badge/Naver%20Cloud-03C75A?style=for-the-badge&logo=naver&logoColor=white)                                                                                                                     |
 
+---
 
-# 사용법
-## 프론트엔드
-### 로컬 실행 방법
+## 🧪 사용법
 
-1. 저장소 복제
+### 💻 로컬 실행
+```bash
+# 1. 저장소 클론
+git clone https://kookmin-sw/capstone-2025-44.git
 
-2. Dependencies 설치
+# 2. 의존성 설치
+cd frontend
+npm install
+
+# 3. 실행
+npm start
 ```
-$ npm install
-```
-3. 개발 서버 시작
-```
-$ npm start
-```
 
-## 배포 방법
-앱 빌드
+### 🚀 배포 빌드
+```bash
+npm run build
 ```
-$ npm run build
-```
-  
+> The application uses CRACO (Create React App Configuration Override) to customize webpack configuration without ejecting, allowing for alias paths (using the @ prefix) and other customizations.
 
+---
 
-# ✅  자료
-- 📒 [포스터](https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530)
-- 📒 [최종발표 PPT]()
-
-
-<!-- <div align=center> 
- 
+## 📎 자료 다운로드
+- 🖼️ [포스터 보기](https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530)
+- 🖥️ [최종 발표 PPT](https://example.com/ppt)

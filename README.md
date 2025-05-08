@@ -12,7 +12,7 @@
 > 🏘️ **정릉3동 주민자치회**의 「정릉3동 마을시간은행 활성화 사업」  
 > 🤝 동네 커뮤니티 기반 상호돌봄과 사회적 연결을 위한 시간 교환 프로그램!
 
-<img src="https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530" width="300" />
+<img src="https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530" width="450" />
 
 ### ⏰ 시간은행이란?
 고령화, 1인가구 증가 등으로 인한 사회적 고립을 해결하기 위해,  
@@ -22,7 +22,6 @@
 🧰 A가 B의 창고를 정리해주면 1시간을 적립  
 💬 이후 B는 자신이 필요한 순간에 C에게 1시간의 도움 요청 가능  
 
-![시간은행 개념도](https://i.ibb.co/xmhsLTf/timebanking-concept.png)
 
 ---
 
@@ -51,13 +50,16 @@
 ---
 
 ## 🧱 시스템 구조도  
-![시스템 아키텍쳐](https://i.ibb.co/VVydsrz/timebank-architecture.png)
+<img src="https://github.com/user-attachments/assets/16e0c421-667e-4655-b2f4-942d828fc2a8" width="900" />
+<br>
+<img src="https://github.com/user-attachments/assets/43558da9-4499-407d-ba69-d8e09ac5b999" width="450" />
+<img src="https://github.com/user-attachments/assets/13730025-86dd-47ba-b639-4c94f55226e3" width="332" />
 
 ---
 
 ## 🎥 시연 영상  
 > ▶️ 영상을 클릭해주세요 
-[![시연 영상](https://i.ibb.co/mJztTzY/youtube-thumbnail.png)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[![시연 영상](.png)](https://www.youtube.com/)
 
 ---
 
@@ -117,6 +119,7 @@ npm start
 ```bash
 npm run build
 ```
+> The application uses CRACO (Create React App Configuration Override) to customize webpack configuration without ejecting, allowing for alias paths (using the @ prefix) and other customizations.
 
 ---
 

@@ -45,30 +45,54 @@ export const Posting1 = () => {
 
   return (
     <PageContainer>
-      <PostingAppBar 
-        onCustomClick={() => resetRecoil()} 
-        nowPage={1}
-        onPrevClick={handlePrev}
-        onNextClick={handleNext}
-      />
-      <PostingBoldText>위치를 입력해 주세요</PostingBoldText>
-      <InputBox.InputMap
-        value={location}
-        setValue={setLocation}
-        setIsError={setIsError}
-        isError={isError}
-      />
-      {isError && <ErrorMsg>위치 입력은 필수 항목입니다</ErrorMsg>}
+      <FixedAppBar>
+        <PostingAppBar
+          onCustomClick={() => resetRecoil()}
+          nowPage={1}
+          onPrevClick={handlePrev}
+          onNextClick={handleNext}
+        />
+      </FixedAppBar>
+
+      <ScrollContainer>
+        <PostingBoldText>위치를 입력해 주세요</PostingBoldText>
+        <InputBox.InputMap
+          value={location}
+          setValue={setLocation}
+          setIsError={setIsError}
+          isError={isError}
+        />
+        {isError && <ErrorMsg>위치 입력은 필수 항목입니다</ErrorMsg>}
+      </ScrollContainer>
     </PageContainer>
   );
 };
 
+const FixedAppBar = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+`;
+
 const PageContainer = styled.div`
   display: flex;
-  width: 100%;
-  align-items: center;
   flex-direction: column;
-  padding-bottom: 20px;
+  width: 100%;
+  height: 100vh;
+  padding-top: 6.44rem;
+`;
+
+const ScrollContainer = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
 `;
 
 const ErrorMsg = styled.div`

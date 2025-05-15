@@ -42,12 +42,15 @@ export const Posting6 = () => {
 
   return (
     <PageContainer>
-      <PostingAppBar 
-        onCustomClick={handleSave} 
-        nowPage={6}
-        onPrevClick={handlePrev}
-        onNextClick={handleNext}
-      />
+      <FixedAppBar>
+        <PostingAppBar
+          onCustomClick={handleSave}
+          nowPage={6}
+          onPrevClick={handlePrev}
+          onNextClick={handleNext}
+        />
+      </FixedAppBar>
+
       <ScrollContainer>
         <PostingBoldText>항목을 선택해주세요</PostingBoldText>
         {isError && <ErrorMsg>항목선택은 필수입니다</ErrorMsg>}
@@ -57,21 +60,13 @@ export const Posting6 = () => {
               key={index}
               state={item.state}
               onClick={() => {
-                setTypeState((prevTypeState) => {
-                  const updatedTypeState = prevTypeState.map(
-                    (prevStateItem, idx) => {
-                      if (idx === index) {
-                        return {
-                          ...prevStateItem,
-                          state: !prevStateItem.state,
-                        };
-                      } else {
-                        return { ...prevStateItem, state: false };
-                      }
-                    },
-                  );
-                  return updatedTypeState;
-                });
+                setTypeState((prevTypeState) =>
+                  prevTypeState.map((prevItem, idx) =>
+                    idx === index
+                      ? { ...prevItem, state: !prevItem.state }
+                      : { ...prevItem, state: false }
+                  )
+                );
               }}
               category={item.id}
             >
@@ -84,20 +79,30 @@ export const Posting6 = () => {
   );
 };
 
+const FixedAppBar = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
+  border-bottom: 1px solid ${colorTheme.blue100};
+`;
+
 const PageContainer = styled.div`
   display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
   flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-top: 6.44rem;
 `;
 
 const ScrollContainer = styled.div`
-  overflow: auto;
+  flex: 1;
+  overflow-y: auto;
   display: flex;
-  width: 100%;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   padding-bottom: 20px;
 `;
 

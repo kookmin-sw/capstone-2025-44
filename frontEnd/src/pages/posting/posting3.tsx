@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { styled } from "styled-components";
 
-import { BottomFixed } from "@/components/common/bottom-fixed";
 import { CommonInput } from "@/components/common/common-input";
 import { ToggleSwitch } from "@/components/common/toggle-switch";
 import { PostingAppBar } from "@/components/posting/posting-app-bar";
@@ -55,9 +54,30 @@ export const Posting3 = () => {
     });
   };
 
+  const handlePrev = () => {
+    handleSave();
+    navigate(-1);
+  };
+
+  const handleNext = () => {
+    if (hourValue === "" || minuteValue === "") {
+      setIsAllError(true);
+      setIsHourError(true);
+      setIsMinuteError(true);
+    } else {
+      handleSave();
+      navigate("/posting/4");
+    }
+  };
+
   return (
     <PageContainer>
-      <PostingAppBar onCustomClick={() => handleSave()} nowPage={3} />
+      <PostingAppBar 
+        onCustomClick={handleSave} 
+        nowPage={3}
+        onPrevClick={handlePrev}
+        onNextClick={handleNext}
+      />
       <PostingBoldText>
         시작 시간을
         <br />
@@ -98,32 +118,6 @@ export const Posting3 = () => {
         <ErrorMsg>0~59분 사이로 입력해주세요!</ErrorMsg>
       )}
       {isAllError && <ErrorMsg>정확한 시작 시간을 입력해주세요!</ErrorMsg>}
-      <BottomFixed alignDirection="row">
-        <BottomFixed.Button
-          color="blue"
-          onClick={() => {
-            handleSave();
-            navigate(-1);
-          }}
-        >
-          이전
-        </BottomFixed.Button>
-        <BottomFixed.Button
-          color="blue"
-          onClick={() => {
-            if (hourValue === "" || minuteValue === "") {
-              setIsAllError(true);
-              setIsHourError(true);
-              setIsMinuteError(true);
-            } else {
-              handleSave();
-              navigate("/posting/4");
-            }
-          }}
-        >
-          다음
-        </BottomFixed.Button>
-      </BottomFixed>
     </PageContainer>
   );
 };
@@ -133,11 +127,9 @@ const PageContainer = styled.div`
   width: 100%;
   align-items: center;
   flex-direction: column;
-
   height: var(--app-height); // 📌 뷰포트 높이 대응
-  overflow-y: auto;         // 📌 입력 시 스크롤 가능하게
-  padding-bottom: 120px;    // 📌 버튼 영역만큼 여백 확보
-
+  overflow-y: auto; // 📌 입력 시 스크롤 가능하게
+  padding-bottom: 20px; // 📌 버튼 영역만큼 여백 확보
 `;
 
 const ErrorMsg = styled.div`
@@ -147,6 +139,3 @@ const ErrorMsg = styled.div`
   font-weight: bold;
   line-height: 2rem;
 `;
-//기존 font 1rem -> 1.5
-//기존 line-height 1.1rem -> 2
-//http://localhost:3000/posting/3 정확한 시작 시간을 입력해주세요! 크기 조절

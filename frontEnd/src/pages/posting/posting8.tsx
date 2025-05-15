@@ -1,9 +1,9 @@
 import { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { styled } from "styled-components";
 
 import { RequestPostingProps } from "@/api/types/post-type";
-import { BottomFixed } from "@/components/common/bottom-fixed";
 import { PostingAppBar } from "@/components/posting/posting-app-bar";
 import { PostingBoldText } from "@/components/posting/posting-bold-text";
 import { PostingInput } from "@/components/posting/posting-input";
@@ -14,6 +14,7 @@ import { FormatDateString } from "@/utils/format-date-string";
 export const Posting8 = () => {
   const [posting, setPosting] = useRecoilState(postingState);
   const [content, setContent] = useState(posting.content);
+  const navigate = useNavigate();
   const postPosting = usePostPosting();
 
   const handleSave = () => {
@@ -21,6 +22,16 @@ export const Posting8 = () => {
       const updatedPosting = { ...prevPosting, content: content };
       return updatedPosting;
     });
+  };
+
+  const handlePrev = () => {
+    handleSave();
+    navigate(-1);
+  };
+
+  const handleFinish = () => {
+    handleSave();
+    handlePostPosting();
   };
 
   const handlePostPosting = () => {
@@ -43,39 +54,52 @@ export const Posting8 = () => {
 
   return (
     <PageContainer>
-      <PostingAppBar onCustomClick={() => handleSave()} nowPage={8} />
-      <PostingBoldText>{'활동 내용을\n작성해주세요'}</PostingBoldText>
-      <PostingInput.InputContent
-        value={content}
-        onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
-          setContent(e.target.value);
-        }}
-      />
-      <BottomFixed>
-        <BottomFixed.Button
-          color="orange"
-          onClick={() => {
-            handleSave();
-            handlePostPosting();
+      <FixedAppBar>
+        <PostingAppBar 
+          onCustomClick={handleSave} 
+          nowPage={8}
+          onPrevClick={handlePrev}
+          onNextClick={handleFinish}
+        />
+      </FixedAppBar>
+
+      <ScrollContainer>
+        <PostingBoldText>{'활동 내용을\n작성해주세요'}</PostingBoldText>
+        <PostingInput.InputContent
+          value={content}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
+            setContent(e.target.value);
           }}
-        >
-          게시물 만들기
-        </BottomFixed.Button>
-      </BottomFixed>
+        />
+      </ScrollContainer>
     </PageContainer>
   );
 };
-//활동 내용을 적어보세요-> {'활동 내용을\n작성해주세요'} 
+
+const FixedAppBar = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+`;
 
 const PageContainer = styled.div`
   display: flex;
-  width: 100%;
-  align-items: center;
-  white-space: pre-line;
   flex-direction: column;
-
-  height: var(--app-height); // 📌 뷰포트 높이 대응
-  overflow-y: auto;         // 📌 입력 시 스크롤 가능하게
-  padding-bottom: 120px;    // 📌 버튼 영역만큼 여백 확보
+  width: 100%;
+  height: 100vh;
+  padding-top: 6.44rem;
 `;
-//white-space: pre-line; // 줄바꿈을 위해 추가
+
+const ScrollContainer = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  white-space: pre-line;
+`;

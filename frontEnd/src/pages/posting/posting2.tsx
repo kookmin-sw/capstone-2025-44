@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { styled } from "styled-components";
 
-import { BottomFixed } from "@/components/common/bottom-fixed";
 import { PostingAppBar } from "@/components/posting/posting-app-bar";
 import { PostingBoldText } from "@/components/posting/posting-bold-text";
 import { PostingDatePicker } from "@/components/posting/posting-date-picker";
@@ -28,9 +27,24 @@ export const Posting2 = () => {
     });
   };
 
+  const handlePrev = () => {
+    handleSave();
+    navigate(-1);
+  };
+
+  const handleNext = () => {
+    handleSave();
+    navigate("/posting/3");
+  };
+
   return (
     <PageContainer>
-      <PostingAppBar onCustomClick={() => handleSave()} nowPage={2} />
+      <PostingAppBar 
+        onCustomClick={handleSave} 
+        nowPage={2} 
+        onPrevClick={handlePrev}
+        onNextClick={handleNext}
+      />
       <PostingBoldText style={{ marginBottom: "0.56rem" }}>
         날짜를 선택해주세요
       </PostingBoldText>
@@ -38,26 +52,6 @@ export const Posting2 = () => {
         {startDate.toLocaleString("ko-KR", { month: "long", day: "2-digit" })}
       </SelectDay>
       <PostingDatePicker startDate={startDate} setStartDate={setStartDate} />
-      <BottomFixed alignDirection="row">
-        <BottomFixed.Button
-          color="blue"
-          onClick={() => {
-            handleSave();
-            navigate(-1);
-          }}
-        >
-          이전
-        </BottomFixed.Button>
-        <BottomFixed.Button
-          color="blue"
-          onClick={() => {
-            handleSave();
-            navigate("/posting/3");
-          }}
-        >
-          다음
-        </BottomFixed.Button>
-      </BottomFixed>
     </PageContainer>
   );
 };
@@ -75,5 +69,3 @@ const SelectDay = styled.span`
   width: 100%;
   text-align: center;
 `;
-//기존 1.39rem -> 2.3
-//http://localhost:3000/posting/2 일월 크기 조절

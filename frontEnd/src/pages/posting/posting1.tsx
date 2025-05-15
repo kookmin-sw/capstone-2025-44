@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { styled } from "styled-components";
 
-import { BottomFixed } from "@/components/common/bottom-fixed";
 import { InputBox } from "@/components/common/Input-box";
 import { PostingAppBar } from "@/components/posting/posting-app-bar";
 import { PostingBoldText } from "@/components/posting/posting-bold-text";
@@ -24,6 +23,20 @@ export const Posting1 = () => {
     });
   };
 
+  const handlePrev = () => {
+    handleSave();
+    navigate(-1);
+  };
+
+  const handleNext = () => {
+    if (!location.length) {
+      setIsError(true);
+      return;
+    }
+    handleSave();
+    navigate("/posting/2");
+  };
+
   useEffect(() => {
     if (isError && location !== "") {
       setIsError(false);
@@ -32,39 +45,54 @@ export const Posting1 = () => {
 
   return (
     <PageContainer>
-      <PostingAppBar onCustomClick={() => resetRecoil()} nowPage={1} />
-      <PostingBoldText>위치를 입력해 주세요</PostingBoldText>
-      <InputBox.InputMap
-        value={location}
-        setValue={setLocation}
-        setIsError={setIsError}
-        isError={isError}
-      />
-      {isError && <ErrorMsg>위치 입력은 필수 항목입니다</ErrorMsg>}
-      <BottomFixed>
-        <BottomFixed.Button
-          color="blue"
-          onClick={() => {
-            if (!location.length) {
-              setIsError(true);
-              return;
-            }
-            handleSave();
-            navigate("/posting/2");
-          }}
-        >
-          다음
-        </BottomFixed.Button>
-      </BottomFixed>
+      <FixedAppBar>
+        <PostingAppBar
+          onCustomClick={() => resetRecoil()}
+          nowPage={1}
+          onPrevClick={handlePrev}
+          onNextClick={handleNext}
+        />
+      </FixedAppBar>
+
+      <ScrollContainer>
+        <PostingBoldText>위치를 입력해 주세요</PostingBoldText>
+        <InputBox.InputMap
+          value={location}
+          setValue={setLocation}
+          setIsError={setIsError}
+          isError={isError}
+        />
+        {isError && <ErrorMsg>위치 입력은 필수 항목입니다</ErrorMsg>}
+      </ScrollContainer>
     </PageContainer>
   );
 };
 
+const FixedAppBar = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+`;
+
 const PageContainer = styled.div`
   display: flex;
-  width: 100%;
-  align-items: center;
   flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-top: 6.44rem;
+`;
+
+const ScrollContainer = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
 `;
 
 const ErrorMsg = styled.div`
@@ -76,5 +104,3 @@ const ErrorMsg = styled.div`
   white-space: pre-line;
   margin-top: 2rem;
 `;
-//기존 1rem -> 1.7
-//http://localhost:3000/posting/1 위치 입력은 필수 항목입니다 크기 조절

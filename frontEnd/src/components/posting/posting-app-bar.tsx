@@ -59,7 +59,7 @@ const NavButton = styled.button`
   background: none;
   border: none;
   color: ${colorTheme.blue900};
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 600;
   cursor: pointer;
   padding: 4px 8px;

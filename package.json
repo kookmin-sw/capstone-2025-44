@@ -21,7 +21,7 @@
     "axios": "^1.6.7",
     "date-fns": "^3.6.0",
     "eslint": "^8.56.0",
-    "firebase": "^10.7.2",
+    "firebase": "^10.14.1",
     "framer-motion": "^11.0.20",
     "notion-types": "^6.16.0",
     "react": "^18.2.0",

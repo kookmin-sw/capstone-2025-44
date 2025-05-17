@@ -71,7 +71,7 @@
 | [류현석](https://github.com/masulsada) | 🎨 UI/UX, Frontend | <img src="https://avatars.githubusercontent.com/u/54922643?v=4" alt="류현석" width="120" /> |
 | [양채훈](https://github.com/) | 🛠️ Backend | <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2FFGrKOrMqLuvt20kKL4ZHrsQzwedUu5oMe_TB7RAyO8PQW6nERJPY5Fidkuyq86FEjI8FgPxdlI2pQCei589sfg.webp&type=a340" alt="양채훈" width="120" /> |
 | [김명환](https://github.com/) | 🎨 UI/UX, Frontend | <img src="https://avatars.githubusercontent.com/u/203513709?v=4" alt="김명환" width="120" /> |
-| [서민호](https://github.com/) | 🎨 UI/UX, Frontend | <img src="https://media.discordapp.net/attachments/1350745027571355673/1369537168195981312/66311106.png?ex=681d89e1&is=681c3861&hm=19b8d36eb8f2475db2c14ef0bdb73cc314375bd3b4d3c4840f12192bd2745354&=&format=webp&quality=lossless&width=525&height=525" alt="서민호" width="120" /> |
+| [서민호](https://github.com/) | 🎨 UI/UX, Frontend | <img src="https://github.com/user-attachments/assets/c4eb87e3-8607-4801-95aa-691ae96fadb6" alt="서민호" width="120" /> |
 | [최우상](https://github.com/dntkd) | 🎨 UI/UX, Frontend |<img src="https://github.com/user-attachments/assets/9cf74ccf-e795-495c-be47-9202f9b5489c" alt="최우상" width="120" /> |
 | [진가준](https://github.com/) | 📱 Frontend | <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTA0MjRfMzAg%2FMDAxNzQ1NDk5MTMzOTkw.G5Zr8MDm253SLTrpL8RiaKxRjulDt7teHeNi0KxnA1cg.8SeBo-k15af4D0oppSk4shgqzKLrno7r6QFsBrTZpYMg.JPEG%2Foutput_701727658.jpg&type=a340" alt="진가준" width="120" /> |
 

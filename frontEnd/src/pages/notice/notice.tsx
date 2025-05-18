@@ -1,5 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { styled } from "styled-components";
+import { collection, addDoc, getDocs, orderBy, query, Timestamp, doc, getDoc } from "firebase/firestore";
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import { db } from "@/lib/firebase";
 
 import { AppBar } from "@/components/common/app-bar";
 import { Sidebar } from "@/components/sidebar";
@@ -8,14 +11,21 @@ import noticeImage1 from "@/assets/images/notice1.png";
 import noticeImage2 from "@/assets/images/notice2.png";
 import noticeImage3 from "@/assets/images/notice3.png";
 
-  //  공지 목록 상태 (지금은 하드코딩됨)
+//  공지 목록 상태
+interface Notice {
+  id: string;
+  title: string;
+  content: string;
+  date: string;
+  createdAt?: Timestamp;
+}
+
 export const NoticePage = () => {
-  const [notices, setNotices] = useState<Array<{
-    id: number;
-    title: string;
-    content: string;
-    date: string;
-  }>>([]);
+  const [notices, setNotices] = useState<Notice[]>([]);
+  const [newNotice, setNewNotice] = useState({ title: "", content: "" });
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAuthLoading, setIsAuthLoading] = useState(true);
 
   //  사이드바 상태
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -24,6 +34,44 @@ export const NoticePage = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+  
+  // 사용자가 관리자인지 확인
+  useEffect(() => {
+    const auth = getAuth();
+    
+    // 사용자 인증을 처리하기 위한 별도의 비동기 함수
+    const checkAdminStatus = async (user: User | null) => {
+      if (user) {
+        try {
+          // 방법1: 사용자 정의 claims 확인
+          const idTokenResult = await user.getIdTokenResult();
+          const hasAdminClaim = idTokenResult.claims.admin === true;
+          
+          if (hasAdminClaim) {
+            setIsAdmin(true);
+          } else {
+            // 방법2: 관리자 클레임이 없으면 사용자 컬렉션에서 역할 확인
+            const userDoc = await getDoc(doc(db, "users", user.uid));
+            const userData = userDoc.data();
+            setIsAdmin(userData?.role === "admin");
+          }
+        } catch (error) {
+          console.error("관리자 권한 확인 실패:", error);
+          setIsAdmin(false);
+        }
+      } else {
+        setIsAdmin(false);
+      }
+      setIsAuthLoading(false);
+    };
+    
+    // 비동기 콜백 사용 안함
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      void checkAdminStatus(user);
+    });
+    
+    return () => unsubscribe();
+  }, []);
   
   const noticeImages = [
     {
@@ -121,39 +169,64 @@ export const NoticePage = () => {
     setIsSidebarOpen(false);
   };
 
+  // 공지사항 데이터 가져오기
+  const fetchNotices = async () => {
+    try {
+      const noticeQuery = query(collection(db, "notices"), orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(noticeQuery);
+      const noticeList: Notice[] = [];
+      
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const createdAtTimestamp = data.createdAt as Timestamp;
+        noticeList.push({
+          id: doc.id,
+          title: data.title as string,
+          content: data.content as string,
+          date: createdAtTimestamp ? new Date(createdAtTimestamp.toDate()).toLocaleDateString() : "",
+          createdAt: createdAtTimestamp
+        });
+      });
+      
+      setNotices(noticeList);
+    } catch (error) {
+      console.error("공지사항 게시에 실패했습니다.:", error);
+    }
+  };
+
+  // 공지사항 추가
+  const addNotice = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!newNotice.title || !newNotice.content) {
+      alert("제목과 내용을 입력해주세요");
+      return;
+    }
+    
+    try {
+      const docRef = await addDoc(collection(db, "notices"), {
+        title: newNotice.title,
+        content: newNotice.content,
+        createdAt: Timestamp.now()
+      });
+      
+      console.log("공지사항이 게재되었습니다.，ID:", docRef.id);
+      setNewNotice({ title: "", content: "" });
+      setIsFormOpen(false);
+      void fetchNotices();
+    } catch (error) {
+      console.error("공지사항 게시에 실패했습니다.:", error);
+    }
+  };
+
+  // 양식 입력 처리
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setNewNotice((prev) => ({ ...prev, [name]: value }));
+  };
+
   useEffect(() => {
-    setNotices([
-      {
-        id: 1,
-        title: "시스템 유지관리 공지",
-        content: "시스템 유지 관리를 수행하기 위해 다음 기간 내에 당사 웹 사이트에 대한 액세스가 중단됩니다.2025년 12월 31일 수요일 1:00 - 2:00",
-        date: "2000-01-01",
-      },
-      {
-        id: 2,
-        title: "title",
-        content: "content",
-        date: "2000-01-01",
-      },
-      {
-        id: 3,
-        title: "title",
-        content: "content",
-        date: "2000-01-01",
-      },
-      {
-        id: 4,
-        title: "title",
-        content: "content",
-        date: "2000-01-01",
-      },
-      {
-        id: 5,
-        title: "title",
-        content: "content",
-        date: "2000-01-01",
-      },
-    ]);
+    void fetchNotices();
   }, []);
 
   return (
@@ -221,6 +294,41 @@ export const NoticePage = () => {
             </ButtonContainer>
           </ImageNoticeContent>
         </ImageNotice>
+        
+        {/* 관리자만 공지사항 게시 가능 */}
+        {isAdmin && (
+          <AddNoticeSection>
+            <AddNoticeButton onClick={() => setIsFormOpen(!isFormOpen)}>
+              {isFormOpen ? "취소" : "새 공지사항 게시"}
+            </AddNoticeButton>
+            
+            {isFormOpen && (
+              <NoticeForm 
+                onSubmit={(e) => {
+                  void addNotice(e);
+                }}
+              >
+                <FormInput
+                  type="text"
+                  name="title"
+                  placeholder="공지사항 제목"
+                  value={newNotice.title}
+                  onChange={handleInputChange}
+                  required
+                />
+                <FormTextarea
+                  name="content"
+                  placeholder="공지사항 내용"
+                  value={newNotice.content}
+                  onChange={handleInputChange}
+                  required
+                />
+                <FormButton type="submit">게시</FormButton>
+              </NoticeForm>
+            )}
+          </AddNoticeSection>
+        )}
+        
         <NoticeList>
           {notices.map((notice) => (
             <NoticeItem key={notice.id}>
@@ -458,4 +566,83 @@ const MenuButton = styled.button`
 const MenuIcon = styled.span`
   color: white;
   font-size: 1.8rem;
+`;
+
+const AddNoticeSection = styled.div`
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const AddNoticeButton = styled.button`
+  background-color: ${colorTheme.blue700};
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: ${colorTheme.blue900};
+  }
+`;
+
+const NoticeForm = styled.form`
+  width: 100%;
+  max-width: 600px;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const FormInput = styled.input`
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  border: 1px solid ${colorTheme.blue900};
+  border-radius: 4px;
+  
+  &:focus {
+    outline: none;
+    border-color: ${colorTheme.blue500};
+  }
+`;
+
+const FormTextarea = styled.textarea`
+  width: 100%;
+  height: 150px;
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  border: 1px solid ${colorTheme.blue900};
+  border-radius: 4px;
+  resize: vertical;
+  
+  &:focus {
+    outline: none;
+    border-color: ${colorTheme.blue500};
+  }
+`;
+
+const FormButton = styled.button`
+  background-color: ${colorTheme.blue700};
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: ${colorTheme.blue900};
+  }
 `;

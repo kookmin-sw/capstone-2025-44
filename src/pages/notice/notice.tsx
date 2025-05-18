@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { styled } from "styled-components";
-import { collection, addDoc, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
+import { collection, addDoc, getDocs, orderBy, query, Timestamp, doc, getDoc } from "firebase/firestore";
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 import { db } from "@/lib/firebase";
 
 import { AppBar } from "@/components/common/app-bar";
@@ -23,6 +24,8 @@ export const NoticePage = () => {
   const [notices, setNotices] = useState<Notice[]>([]);
   const [newNotice, setNewNotice] = useState({ title: "", content: "" });
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAuthLoading, setIsAuthLoading] = useState(true);
 
   //  사이드바 상태
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -31,6 +34,44 @@ export const NoticePage = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+  
+  // 사용자가 관리자인지 확인
+  useEffect(() => {
+    const auth = getAuth();
+    
+    // 사용자 인증을 처리하기 위한 별도의 비동기 함수
+    const checkAdminStatus = async (user: User | null) => {
+      if (user) {
+        try {
+          // 방법1: 사용자 정의 claims 확인
+          const idTokenResult = await user.getIdTokenResult();
+          const hasAdminClaim = idTokenResult.claims.admin === true;
+          
+          if (hasAdminClaim) {
+            setIsAdmin(true);
+          } else {
+            // 방법2: 관리자 클레임이 없으면 사용자 컬렉션에서 역할 확인
+            const userDoc = await getDoc(doc(db, "users", user.uid));
+            const userData = userDoc.data();
+            setIsAdmin(userData?.role === "admin");
+          }
+        } catch (error) {
+          console.error("관리자 권한 확인 실패:", error);
+          setIsAdmin(false);
+        }
+      } else {
+        setIsAdmin(false);
+      }
+      setIsAuthLoading(false);
+    };
+    
+    // 비동기 콜백 사용 안함
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      void checkAdminStatus(user);
+    });
+    
+    return () => unsubscribe();
+  }, []);
   
   const noticeImages = [
     {
@@ -254,36 +295,39 @@ export const NoticePage = () => {
           </ImageNoticeContent>
         </ImageNotice>
         
-        <AddNoticeSection>
-          <AddNoticeButton onClick={() => setIsFormOpen(!isFormOpen)}>
-            {isFormOpen ? "취소" : "새 공지사항 게시"}
-          </AddNoticeButton>
-          
-          {isFormOpen && (
-            <NoticeForm 
-              onSubmit={(e) => {
-                void addNotice(e);
-              }}
-            >
-              <FormInput
-                type="text"
-                name="title"
-                placeholder="공지사항 제목"
-                value={newNotice.title}
-                onChange={handleInputChange}
-                required
-              />
-              <FormTextarea
-                name="content"
-                placeholder="공지사항 내용"
-                value={newNotice.content}
-                onChange={handleInputChange}
-                required
-              />
-              <FormButton type="submit">게시</FormButton>
-            </NoticeForm>
-          )}
-        </AddNoticeSection>
+        {/* 관리자만 공지사항 게시 가능 */}
+        {isAdmin && (
+          <AddNoticeSection>
+            <AddNoticeButton onClick={() => setIsFormOpen(!isFormOpen)}>
+              {isFormOpen ? "취소" : "새 공지사항 게시"}
+            </AddNoticeButton>
+            
+            {isFormOpen && (
+              <NoticeForm 
+                onSubmit={(e) => {
+                  void addNotice(e);
+                }}
+              >
+                <FormInput
+                  type="text"
+                  name="title"
+                  placeholder="공지사항 제목"
+                  value={newNotice.title}
+                  onChange={handleInputChange}
+                  required
+                />
+                <FormTextarea
+                  name="content"
+                  placeholder="공지사항 내용"
+                  value={newNotice.content}
+                  onChange={handleInputChange}
+                  required
+                />
+                <FormButton type="submit">게시</FormButton>
+              </NoticeForm>
+            )}
+          </AddNoticeSection>
+        )}
         
         <NoticeList>
           {notices.map((notice) => (

@@ -79,6 +79,32 @@ export const BirthModal = ({ onClose }: { onClose: () => void }) => {
         dRef.current && dRef.current.focus();
         break;
     }
+
+    //키보드만 팝업
+    const handleFocus = () => {
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    };
+
+    const handleBlur = () => {
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+
+    const inputs = document.querySelectorAll("input");
+
+    inputs.forEach((input) => {
+      input.addEventListener("focus", handleFocus);
+      input.addEventListener("blur", handleBlur);
+    });
+
+    return () => {
+      inputs.forEach((input) => {
+        input.removeEventListener("focus", handleFocus);
+        input.removeEventListener("blur", handleBlur);
+      });
+    };
+
   }, [step]);
 
   return (

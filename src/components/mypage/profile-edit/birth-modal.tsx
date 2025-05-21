@@ -43,13 +43,11 @@ export const BirthModal = ({ onClose }: { onClose: () => void }) => {
   const dRef = useRef<HTMLInputElement>(null);
 
   const setProfileEdit = useSetRecoilState(profileEditState);
-
   const [errorMsg, setErrorMsg] = useState<ErrorMessageType>("INITIAL");
-
   const [step, setStep] = useState<number>(0);
 
   const nextStep = (targetStep: number) => {
-    return setStep((step) => (step < targetStep ? step + 1 : step));
+    setStep((prev) => (prev < targetStep ? prev + 1 : prev));
   };
 
   const onClick = () => {
@@ -58,63 +56,46 @@ export const BirthModal = ({ onClose }: { onClose: () => void }) => {
         ...prev,
         birth: `${bYear}-${bMonth}-${bDay}`,
       }));
-
       onClose();
     }
-    errorMsg === "INITIAL" &&
-      [bYear, bMonth, bDay][step].length &&
+    if (errorMsg === "INITIAL" && [bYear, bMonth, bDay][step].length) {
       nextStep(step + 1);
+    }
   };
 
+  // vh 변수 설정
   useEffect(() => {
-    // step에 따른 input 자동 포커싱
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+    setVh();
+    window.addEventListener("resize", setVh);
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
+
+  useEffect(() => {
     switch (step) {
       case 0:
-        yRef.current && yRef.current.focus();
+        yRef.current?.focus();
         break;
       case 1:
-        mRef.current && mRef.current.focus();
+        mRef.current?.focus();
         break;
       case 2:
-        dRef.current && dRef.current.focus();
+        dRef.current?.focus();
         break;
     }
-
-    //키보드만 팝업
-    const handleFocus = () => {
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-    };
-
-    const handleBlur = () => {
-      document.body.style.position = "";
-      document.body.style.width = "";
-    };
-
-    const inputs = document.querySelectorAll("input");
-
-    inputs.forEach((input) => {
-      input.addEventListener("focus", handleFocus);
-      input.addEventListener("blur", handleBlur);
-    });
-
-    return () => {
-      inputs.forEach((input) => {
-        input.removeEventListener("focus", handleFocus);
-        input.removeEventListener("blur", handleBlur);
-      });
-    };
-
   }, [step]);
 
   return (
     <Modal bottomFixed icon="back" onClose={onClose}>
       <ModalInner>
         <Modal.Title text="생년월일을\n입력해주세요" />
-        {errorMsg !== "INITIAL" ? (
+        {errorMsg !== "INITIAL" && (
           <ErrorMessage>{ErrorMessageMap[errorMsg]}</ErrorMessage>
-        ) : (
-          <></>
         )}
         <>
           <BirthInput
@@ -160,7 +141,7 @@ export const BirthModal = ({ onClose }: { onClose: () => void }) => {
                 ref={dRef}
                 appear={step === 2}
                 appearEffect="widthUp"
-                moveEffect={"none"}
+                moveEffect="none"
                 suffix="일"
                 maxLength={2}
                 value={bDay}
@@ -210,6 +191,7 @@ export const BirthInput = forwardRef<HTMLInputElement, BirthInputProps>(
   },
 );
 
+// vh
 const ModalInner = styled.div`
   width: 100%;
   max-width: 100%;
@@ -217,6 +199,8 @@ const ModalInner = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
+  height: calc(var(--vh, 1vh) * 100);
+  overflow-y: auto;
 `;
 
 const ErrorMessage = styled.div`
@@ -264,8 +248,7 @@ const InputWrapper = styled.div<{
   }}
 
   & > input {
-    padding: 12px 15px; // 가로폭이 좁은 기기(like galaxy fold) 고려
-
+    padding: 12px 15px;
     width: 100%;
     background-color: #e4e8f1;
     border: 0;

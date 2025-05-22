@@ -127,7 +127,7 @@ const ModalBackground = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: var(--app-init-height);
   background-color: rgba(217, 217, 217, 0.7);
   z-index: 80;
 `;
@@ -136,7 +136,7 @@ const Content = styled.div<{ $bottomFixed: boolean }>`
   position: relative;
   display: flex;
   max-width: 90%;
-  max-height: 90%;
+  max-height: calc(var(--app-init-height) * 0.9);
   padding: 45px 40px 40px;
   background-color: #f5f5f5;
   border-radius: 35px;

@@ -1,54 +1,27 @@
-# React + TypeScript + Vite
+# 📡 Vite + React + TypeScript 뉴스 앱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+이 프로젝트는 **Vite + React + TypeScript**를 기반으로 개발된 뉴스 조회 웹 애플리케이션입니다.  
+**Naver News API**를 활용하여 최신 뉴스를 실시간으로 불러와 표시합니다.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔧 사용 기술
 
-## Expanding the ESLint configuration
+| 기술 스택        | 설명                         |
+|------------------|---------------------------|
+| Vite             | 빠른 프론트엔드 빌드 도구       |
+| React            | UI 라이브러리                |
+| TypeScript       | 타입 안정성 제공              |
+| Tailwind CSS     | 유틸리티 기반 CSS 프레임워크    |
+| Naver News API   | 뉴스 데이터 제공              |
+| WeatherAPI.com   | 날씨 데이터 제공 (선택사항)     |
+| react-icons      | 아이콘 시각화                |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 시작하기
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 1. 프로젝트 클론
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+```bash
+git clone https://github.com/kookmin-sw/capstone-2025-44.git
+cd capstone-2025-44

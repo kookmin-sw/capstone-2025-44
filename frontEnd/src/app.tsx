@@ -5,8 +5,13 @@ import { GlobalStyle } from "./style/global";
 
 export const App = () => {
   useEffect(() => {
+
+    const initalHeight = window.innerHeight;
+    const doc = document.documentElement;
+
+    doc.style.setProperty("--app-init-height", `${initalHeight}px`);
+
     const setAppHeight = () => {
-      const doc = document.documentElement;
       doc.style.setProperty("--app-height", `${window.innerHeight}px`);
     };
 

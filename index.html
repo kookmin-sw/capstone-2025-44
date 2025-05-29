@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⏳ 시간은행 (2025 다학제간캡스톤디자인1 44팀)</title>
+  <style>
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      background-color: #333;
+      overflow: auto;
+      position: sticky;
+      top: 60px; /* height of header */
+      z-index: 999;
+    }
+    nav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    nav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    nav a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      scroll-margin-top: 130px;
+      margin-bottom: 250px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+      scroll-margin-top: 120px;
+    }
+
+    img {
+      max-width: 100%;
+      height : auto
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    .team-table img {
+      width: 120px;
+      border-radius: 8px;
+    }
+    .video-thumbnail {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    ⏳ 시간은행 (2025 다학제간캡스톤디자인1 44팀)
+  </header>
+  <nav>
+    <a href="#intro">소개</a>
+    <a href="#usage">이용 방법</a>
+    <a href="#why">필요성</a>
+    <a href="#improvement">개선 사항</a>
+    <a href="#architecture">시스템 구조</a>
+    <a href="#demo">시연 영상</a>
+    <a href="#team">팀 소개</a>
+    <a href="#tech">기술 스택</a>
+    <a href="#run">사용법</a>
+    <a href="#download">자료 다운로드</a>
+  </nav>
+
+  <section id="intro">
+    <h2>📌 프로젝트 소개</h2>
+    <p>🏘️ <strong>정릉3동 주민자치회</strong>의 「정릉3동 마을시간은행 활성화 사업」</p>
+    <p>🤝 동네 커뮤니티 기반 상호돌봄과 사회적 연결을 위한 시간 교환 프로그램!</p>
+    <img src="https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530" alt="시간은행 이미지" width="450">
+    <h3>⏰ 시간은행이란?</h3>
+    <p>고령화, 1인가구 증가 등으로 인한 사회적 고립을 해결하기 위해, 사람들 간에 서로의 ‘<strong>시간</strong>’을 나누고 기록하여 공동체를 회복하는 서비스입니다.</p>
+    <p><strong>💡 예시:</strong><br> 🧰 A가 B의 창고를 정리해주면 1시간 적립<br> 💬 이후 A는 자신이 필요한 순간에 C에게 1시간의 도움 요청 가능</p>
+  </section>
+
+  <section id="usage">
+    <h2>👣 이용 방법</h2>
+    <ol>
+      <li>1️⃣ 본인의 재능/도움 등록</li>
+      <li>2️⃣ 필요한 도움 요청 or 다른 사람의 요청 수락</li>
+      <li>3️⃣ 시간 거래자끼리 채팅을 이용해 일정 조율</li>
+      <li>4️⃣ 완료 후 시간 적립/차감</li>
+    </ol>
+  </section>
+
+  <section id="why">
+    <h2>❓ 왜 필요한가요?</h2>
+    <ul>
+      <li>🧓 <strong>고령화</strong>로 인한 노인 고립 증가</li>
+      <li>🏠 <strong>1인가구</strong>의 연결 단절</li>
+      <li>🌱 <strong>공동체 회복</strong>을 위한 새로운 방식 필요</li>
+      <li>💔 정릉3동 내 사회복지 사각지대 해소</li>
+    </ul>
+  </section>
+
+  <section id="improvement">
+    <h2>🛠️ 개발 기록 및 기능 개선</h2>
+    <ul>
+      <li>🧭 전체 UI/UX → 사용 연령층을 고려하여 폰트 크기 확대</li>
+      <li>🧾 공지사항 추가 → 긴급 공지 및 행정 안내 가능</li>
+      <li>📊 기타 문제 수정 → 키보드 활성화 시 화면 가림 문제, 생년월일 입력 오류 해결</li>
+      <li>🔔 알람 수정 → 안드로이드 환경에서 앱 알람 문제 해결</li>
+    </ul>
+  </section>
+
+  <section id="architecture">
+    <h2>🧱 시스템 구조도</h2>
+    <img src="https://github.com/user-attachments/assets/16e0c421-667e-4655-b2f4-942d828fc2a8" width="900">
+    <img src="https://github.com/user-attachments/assets/43558da9-4499-407d-ba69-d8e09ac5b999" width="450">
+    <img src="https://github.com/user-attachments/assets/13730025-86dd-47ba-b639-4c94f55226e3" width="332">
+  </section>
+
+  <section id="demo">
+    <h2>🎥 시연 영상</h2>
+    <p>▶️ 영상을 클릭해주세요</p>
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+      <img src=".png" alt="시연 영상" width="600">
+    </a>
+  </section>
+
+  <section id="team">
+  <h2>👨‍👩‍👧‍👦 팀 소개</h2>
+  <p>🗓️ 개발 기간: 2025.03.04 ~</p>
+  <table class="team-table">
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>역할</th>
+        <th>프로필</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://github.com/">박종신</a></td>
+        <td>🧑‍💻 Infra</td>
+        <td><img src="https://github.com/user-attachments/assets/a95aa8bb-7bdd-448d-a796-2a8837ae5a70" alt="박종신" /></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/masulsada">류현석</a></td>
+        <td>🎨 UI/UX, Frontend</td>
+        <td><img src="https://avatars.githubusercontent.com/u/54922643?v=4" alt="류현석" /></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/">양채훈</a></td>
+        <td>🛠️ Backend</td>
+        <td><img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2FFGrKOrMqLuvt20kKL4ZHrsQzwedUu5oMe_TB7RAyO8PQW6nERJPY5Fidkuyq86FEjI8FgPxdlI2pQCei589sfg.webp&type=a340" alt="양채훈" /></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/">김명환</a></td>
+        <td>🎨 UI/UX, Frontend</td>
+        <td><img src="https://avatars.githubusercontent.com/u/203513709?v=4" alt="김명환" /></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/">서민호</a></td>
+        <td>🎨 UI/UX, Frontend</td>
+        <td><img src="https://github.com/user-attachments/assets/c4eb87e3-8607-4801-95aa-691ae96fadb6" alt="서민호" /></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/dntkd">최우상</a></td>
+        <td>🎨 UI/UX, Frontend</td>
+        <td><img src="https://github.com/user-attachments/assets/9cf74ccf-e795-495c-be47-9202f9b5489c" alt="최우상" /></td>
+      </tr>
+       <tr>
+        <td><a href="https://github.com/dntkd">진가준</a></td>
+        <td>🎨 Frontend</td>
+        <td><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTA0MjRfMzAg%2FMDAxNzQ1NDk5MTMzOTkw.G5Zr8MDm253SLTrpL8RiaKxRjulDt7teHeNi0KxnA1cg.8SeBo-k15af4D0oppSk4shgqzKLrno7r6QFsBrTZpYMg.JPEG%2Foutput_701727658.jpg&type=a340" alt="진가준" /></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+  <section id="tech">
+    <h2>🧰 기술 스택</h2>
+    <h3>📱 Front End</h3>
+    <ul>
+      <li><strong>Framework:</strong>
+        <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React" />
+        <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" alt="Styled Components" />
+      </li>
+      <li><strong>Database:</strong>
+        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white" alt="Firebase" />
+      </li>
+      <li><strong>Programming Language:</strong>
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+        <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" alt="Java" />
+      </li>
+      <li><strong>Device:</strong>
+        <img src="https://img.shields.io/badge/ANDROID-34A853?style=for-the-badge&logo=android&logoColor=white" alt="Android" />
+      </li>
+    </ul>
+
+    <h3>🔧 Back End</h3>
+    <ul>
+      <li><strong>Framework:</strong>
+        <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot" />
+        <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi" alt="FastAPI" />
+      </li>
+      <li><strong>Database:</strong>
+        <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+      </li>
+      <li><strong>Programming Language:</strong>
+        <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" alt="Java" />
+        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+      </li>
+      <li><strong>Deploy:</strong>
+        <img src="https://img.shields.io/badge/Naver%20Cloud-03C75A?style=for-the-badge&logo=naver&logoColor=white" alt="Naver Cloud" />
+      </li>
+    </ul>
+  </section>
+
+  <section id="run">
+    <h2>🧪 사용법</h2>
+    <h3>💻 로컬 실행</h3>
+    <pre><code>git clone https://kookmin-sw/capstone-2025-44.git
+cd frontend
+npm install
+npm start</code></pre>
+    <h3>🚀 배포 빌드</h3>
+    <pre><code>npm run build</code></pre>
+    <p>CRACO를 사용해 webpack 설정을 eject 없이 커스터마이징함 (alias 경로 등).</p>
+  </section>
+
+  <section id="download">
+    <h2>📎 자료 다운로드</h2>
+    <ul>
+      <li>🖼️ <a href="https://github.com/user-attachments/assets/48a486e1-f749-47d7-89ba-35999b7ba530">포스터 보기</a></li>
+      <li>🖥️ <a href="https://example.com/ppt">최종 발표 PPT</a></li>
+    </ul>
+  </section>
+
+</body>
+
+</html>

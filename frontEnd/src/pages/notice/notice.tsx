@@ -96,10 +96,11 @@ export const NoticePage = () => {
 
   // 메뉴 항목 정의
   const menuItems = [
-    { id: 1, title: "홈", path: "/" },
+    { id: 1, title: "홈", path: "/mypage" },
     { id: 2, title: "공지사항", path: "/notice" },
-    { id: 3, title: "소개", path: "/about" },
-    { id: 4, title: "연락처", path: "/contact" }
+    { id: 3, title: "신문", path: "/news" },
+    { id: 4, title: "뱃지함", path: "/badge" },
+    { id: 5, title: "연락처", path: "/contact" }
   ];
 
   const handleImageClick = (link: string) => {

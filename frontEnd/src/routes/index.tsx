@@ -31,6 +31,8 @@ import { BottomFixedTest } from "@/pages/test/bottom-fixed-test";
 import { FCMTest } from "@/pages/test/fcm";
 import { NoticePage } from "@/pages/notice/notice";
 import { ContactPage } from "@/pages/contact/contact";
+import { NewsPage } from "@/pages/news/news";
+import { BadgePage } from "@/pages/badge/badge";
 
 const routeChildren = [
   {
@@ -157,6 +159,16 @@ const routeChildren = [
   {
     path: "/contact",
     element: <ContactPage />,
+    auth: true,
+  },
+  {
+    path: "/news",
+    element: <NewsPage />,
+    auth: true,
+  },
+  {
+    path: "/badge",
+    element: <BadgePage />,
     auth: true,
   },
   // test

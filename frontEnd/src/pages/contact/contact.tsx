@@ -8,10 +8,11 @@ export const ContactPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const menuItems = [
-    { id: 1, title: "홈", path: "/" },
+    { id: 1, title: "홈", path: "/mypage" },
     { id: 2, title: "공지사항", path: "/notice" },
-    { id: 3, title: "소개", path: "/about" },
-    { id: 4, title: "연락처", path: "/contact" }
+    { id: 3, title: "신문", path: "/news" },
+    { id: 4, title: "뱃지함", path: "/badge" },
+    { id: 5, title: "연락처", path: "/contact" }
   ];
 
   const toggleSidebar = () => {
@@ -49,7 +50,7 @@ export const ContactPage = () => {
           </MenuButton>
         </AppBar.AppBarNavigate>
       </AppBar>
-      
+
       <ContactContent>
         <ContactSection>
           <ContactTitle>망설이지 말고 무엇이든 물어보세요</ContactTitle>
@@ -70,9 +71,9 @@ export const ContactPage = () => {
         </ContactSection>
       </ContactContent>
 
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={closeSidebar} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={closeSidebar}
         menuItems={menuItems}
       />
     </Wrapper>

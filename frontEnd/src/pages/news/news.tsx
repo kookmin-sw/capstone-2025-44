@@ -14,6 +14,8 @@ interface NewsItem {
 export const NewsPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [newsList, setNewsList] = useState<NewsItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const menuItems = [
     { id: 1, title: "홈", path: "/mypage" },
@@ -33,8 +35,11 @@ export const NewsPage = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const clientId = "RyeaFSkDqg8sPdcklK4Y";
-      const clientSecret = "nXhQTJewEz";
+      setIsLoading(true);
+      setError(null);
+      
+      const clientId = process.env.REACT_APP_NAVER_CLIENT_ID || "RyeaFSkDqg8sPdcklK4Y";
+      const clientSecret = process.env.REACT_APP_NAVER_CLIENT_SECRET || "nXhQTJewEz";
       const query = encodeURIComponent("정릉");
 
       try {
@@ -48,10 +53,17 @@ export const NewsPage = () => {
           }
         );
 
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = (await response.json()) as { items: NewsItem[] };
         setNewsList(data.items);
       } catch (error) {
         console.error("뉴스 데이터를 불러오는 데 실패했습니다:", error);
+        setError("뉴스를 불러오는 데 실패했습니다. 잠시 후 다시 시도해주세요.");
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -89,17 +101,25 @@ export const NewsPage = () => {
       <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} menuItems={menuItems} />
 
       <Content>
-        {newsList.map((news, index) => (
-          <NewsCard key={index}>
-            <NewsTitle
-              href={news.link}
-              target="_blank"
-              dangerouslySetInnerHTML={{ __html: news.title }}
-            />
-            <NewsDesc dangerouslySetInnerHTML={{ __html: news.description }} />
-            <NewsDate>{news.pubDate}</NewsDate>
-          </NewsCard>
-        ))}
+        {isLoading ? (
+          <LoadingMessage>뉴스를 불러오는 중입니다...</LoadingMessage>
+        ) : error ? (
+          <ErrorMessage>{error}</ErrorMessage>
+        ) : newsList.length === 0 ? (
+          <NoNewsMessage>표시할 뉴스가 없습니다.</NoNewsMessage>
+        ) : (
+          newsList.map((news, index) => (
+            <NewsCard key={index}>
+              <NewsTitle
+                href={news.link}
+                target="_blank"
+                dangerouslySetInnerHTML={{ __html: news.title }}
+              />
+              <NewsDesc dangerouslySetInnerHTML={{ __html: news.description }} />
+              <NewsDate>{news.pubDate}</NewsDate>
+            </NewsCard>
+          ))
+        )}
       </Content>
     </Wrapper>
   );
@@ -159,4 +179,25 @@ const NewsDate = styled.p`
   font-size: 0.8rem;
   color: #888;
   text-align: right;
+`;
+
+const LoadingMessage = styled.div`
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: ${colorTheme.blue900};
+`;
+
+const ErrorMessage = styled.div`
+  text-align: center;
+  padding: 2rem;
+  color: red;
+  font-size: 1.2rem;
+`;
+
+const NoNewsMessage = styled.div`
+  text-align: center;
+  padding: 2rem;
+  color: ${colorTheme.blue900};
+  font-size: 1.2rem;
 `;

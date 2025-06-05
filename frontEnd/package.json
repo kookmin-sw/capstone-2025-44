@@ -80,5 +80,6 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "prettier": "^3.2.4",
     "typescript": "^4.9.5"
-  }
+  },
+  "proxy": "https://openapi.naver.com"
 }

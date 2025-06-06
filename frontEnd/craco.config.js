@@ -9,5 +9,6 @@ module.exports = {
     headers: {
       "Cross-Origin-Embedder-Policy": "unsafe-none",
     },
+    allowedHosts: 'all',
   },
 };

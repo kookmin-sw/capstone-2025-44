@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+
 import { colorTheme } from "@/style/color-theme";
 
 interface SidebarProps {

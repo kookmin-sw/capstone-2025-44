@@ -4,13 +4,15 @@ import { styled } from "styled-components";
 
 import ChatDarkSVG from "@/assets/icons/chat-dark.svg";
 import ChatOrangeSVG from "@/assets/icons/chat-orange.svg";
+import NoticeDarkSVG from "@/assets/icons/notice-dark.svg";
+import NoticeOrangeSVG from "@/assets/icons/notice-orange.svg";
 import MypageDarkSVG from "@/assets/icons/mypage-dark.svg";
 import MypageOrangeSVG from "@/assets/icons/mypage-orange.svg";
 import PostDark from "@/assets/icons/post-dark.svg";
 import PostOrange from "@/assets/icons/post-orange.svg";
-import NoticeDarkSVG from "@/assets/icons/notice-dark.svg";
-import NoticeOrangeSVG from "@/assets/icons/notice-orange.svg";
+
 import { colorTheme } from "@/style/color-theme";
+
 
 export const BottomNavigationBar = () => {
   const navigate = useNavigate();

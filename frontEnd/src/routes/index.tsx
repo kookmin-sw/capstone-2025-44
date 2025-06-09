@@ -3,10 +3,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthLayout } from "@/components/layout/auth-layout";
 import { GlobalLayout } from "@/components/layout/global-layout";
 import { KakaoAuth } from "@/components/login/kakao-auth";
+import { BadgePage } from "@/pages/badge/badge";
 import { Chat } from "@/pages/chat/chat";
 import { ChatRoom } from "@/pages/chat/chat-room";
+import { ContactPage } from "@/pages/contact/contact";
 import { WrongAccessPage } from "@/pages/error/wrong-access";
 import { LoginPage } from "@/pages/login";
+import { NoticePage } from "@/pages/notice/notice";
+import { NewsPage } from "@/pages/news/news";
 import { Mypage } from "@/pages/mypage/mypage";
 import { ApplicantListPage } from "@/pages/post/applicant-list-page";
 import { PostDetailPage } from "@/pages/post/post-detail";
@@ -29,10 +33,6 @@ import { PrivacyPolicyPage } from "@/pages/terms/privacy-policy";
 import { UserTermsPage } from "@/pages/terms/user-terms";
 import { BottomFixedTest } from "@/pages/test/bottom-fixed-test";
 import { FCMTest } from "@/pages/test/fcm";
-import { NoticePage } from "@/pages/notice/notice";
-import { ContactPage } from "@/pages/contact/contact";
-import { NewsPage } from "@/pages/news/news";
-import { BadgePage } from "@/pages/badge/badge";
 
 const routeChildren = [
   {

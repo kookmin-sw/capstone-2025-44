@@ -1,5 +1,6 @@
-import { RecoilRoot } from "recoil";
 import { useEffect } from "react";
+import { RecoilRoot } from "recoil";
+
 import { Routers } from "./routes";
 import { GlobalStyle } from "./style/global";
 

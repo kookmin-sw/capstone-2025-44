@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+
 import { ProfileData } from "@/api/types/profile-type";
 import ProfileApi from "@/api/profile-api";
 
@@ -8,16 +9,16 @@ export const useGetProfile = (userId?: number) => {
     queryFn: async () => {
       const role = localStorage.getItem("role");
       const guestProfile = localStorage.getItem("guestProfile");
-      
+
       if (role === "ROLE_USER" && guestProfile) {
         const parsedProfile = JSON.parse(guestProfile) as unknown;
-        
+
         if (isValidProfileData(parsedProfile)) {
           return parsedProfile;
         }
         throw new Error("Invalid guest profile data");
       }
-      
+
       return ProfileApi.getProfile(userId);
     },
   });
@@ -25,9 +26,9 @@ export const useGetProfile = (userId?: number) => {
 
 function isValidProfileData(data: unknown): data is ProfileData {
   if (!data || typeof data !== 'object') return false;
-  
+
   const profile = data as Partial<ProfileData>;
-  
+
   return (
     typeof profile.userId === 'number' &&
     typeof profile.nickName === 'string' &&

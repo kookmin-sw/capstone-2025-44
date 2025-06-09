@@ -1,9 +1,9 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getMessaging } from "firebase/messaging/sw";
 import { getFirestore } from "firebase/firestore";
+import { getMessaging } from "firebase/messaging/sw";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAb8gPmyBEft0oRnRAr5uPwBQf8zMKo5yo",

@@ -98,14 +98,16 @@ export const LoginPage = () => {
         <Header>로그인</Header>
         <LoginIcon width="5rem" />
         {isLoading ? (
-          <>로딩중...</>
+          <>로딩중입니다</>
         ) : (
           <ButtonContainer>
             <GoogleButton setIsLoading={setIsLoading} />
             <KakaoButton />
+            {/* 
             <GuestButton onClick={handleGuestLogin}>
               게스트
             </GuestButton>
+            */}
           </ButtonContainer>
         )}
       </Content>

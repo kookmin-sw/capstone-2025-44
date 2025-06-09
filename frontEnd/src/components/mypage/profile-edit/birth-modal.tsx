@@ -48,11 +48,11 @@ export const BirthModal = ({ onClose }: { onClose: () => void }) => {
   const [focusStep, setFocusStep] = useState<number>(0);
   const [step, setStep] = useState<number>(0);
 
-  const nextStep = (targetStep: number) => {
+  /* const nextStep = (targetStep: number) => {
     return setStep((step) => (step < targetStep ? step + 1 : step));
-  };
+  }; */
 
-  
+
   // --- 통합 유효성 검사 함수 (오류 유형만 반환) ---
   const validateUpToStep = (stepToValidate: number): ErrorMessageType => {
     // 0단계: 연도 검사
@@ -86,27 +86,27 @@ export const BirthModal = ({ onClose }: { onClose: () => void }) => {
   };
   // ---
 
-    // --- 오류 처리 및 포커스 이동 함수 ---
-    const handleError = (errorType: ErrorMessageType) => {
-      setErrorMsg(errorType);
-      switch (errorType) {
-          case "YEAR":
-              yRef.current?.focus();
-              setFocusStep(0); // 포커스 단계 동기화
-              break;
-          case "MONTH":
-              mRef.current?.focus();
-              setFocusStep(1);
-              break;
-          case "DAY":
-              dRef.current?.focus();
-              setFocusStep(2);
-              break;
-          case "INITIAL":
-          default:
-              // 성공 시에는 포커스 이동은 다른 로직에서 처리
-              break;
-      }
+  // --- 오류 처리 및 포커스 이동 함수 ---
+  const handleError = (errorType: ErrorMessageType) => {
+    setErrorMsg(errorType);
+    switch (errorType) {
+      case "YEAR":
+        yRef.current?.focus();
+        setFocusStep(0); // 포커스 단계 동기화
+        break;
+      case "MONTH":
+        mRef.current?.focus();
+        setFocusStep(1);
+        break;
+      case "DAY":
+        dRef.current?.focus();
+        setFocusStep(2);
+        break;
+      case "INITIAL":
+      default:
+        // 성공 시에는 포커스 이동은 다른 로직에서 처리
+        break;
+    }
   };
   // ---
 
@@ -137,9 +137,9 @@ export const BirthModal = ({ onClose }: { onClose: () => void }) => {
         const nextStepIndex = focusStep + 1;
         setStep((prevMaxStep) => Math.max(prevMaxStep, nextStepIndex));
         setFocusStep(nextStepIndex); // 다음 단계로 포커스 이동 요청
-         // 성공 시 값 포맷팅 (패딩) - validateUpToStep 내부에서 안 했다면 여기서 수행
-        if (focusStep === 1 && bMonth.length > 0) setBMonth(bMonth.padStart(2,'0'));
-        if (focusStep === 2 && bDay.length > 0) setBDay(bDay.padStart(2,'0'));
+        // 성공 시 값 포맷팅 (패딩) - validateUpToStep 내부에서 안 했다면 여기서 수행
+        if (focusStep === 1 && bMonth.length > 0) setBMonth(bMonth.padStart(2, '0'));
+        if (focusStep === 2 && bDay.length > 0) setBDay(bDay.padStart(2, '0'));
       }
       // '완료하기' 로직 처리
       else {

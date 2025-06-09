@@ -34,7 +34,6 @@ export const NoticePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
@@ -138,26 +137,6 @@ export const NoticePage = () => {
       } else {
         handlePrevClick();
       }
-    }
-
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
-
-  const handlePageTouchStart = (e: React.TouchEvent) => {
-    if (e.touches[0].clientX < 30) {
-      touchStartX.current = e.touches[0].clientX;
-    }
-  };
-
-  const handlePageTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return;
-
-    touchEndX.current = e.changedTouches[0].clientX;
-    const diff = touchEndX.current - touchStartX.current;
-
-    if (diff > 50 && !isSidebarOpen && touchStartX.current < 30) {
-      setIsSidebarOpen(true);
     }
 
     touchStartX.current = null;

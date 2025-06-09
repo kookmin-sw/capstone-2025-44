@@ -21,8 +21,7 @@ export const NewsPage = () => {
     { id: 1, title: "홈", path: "/mypage" },
     { id: 2, title: "공지사항", path: "/notice" },
     { id: 3, title: "신문", path: "/news" },
-    { id: 4, title: "뱃지함", path: "/badge" },
-    { id: 5, title: "연락처", path: "/contact" }
+    { id: 4, title: "연락처", path: "/contact" }
   ];
 
   const toggleSidebar = () => {
@@ -37,7 +36,7 @@ export const NewsPage = () => {
     const fetchNews = async () => {
       setIsLoading(true);
       setError(null);
-      
+
       const clientId = process.env.REACT_APP_NAVER_CLIENT_ID || "RyeaFSkDqg8sPdcklK4Y";
       const clientSecret = process.env.REACT_APP_NAVER_CLIENT_SECRET || "nXhQTJewEz";
       const query = encodeURIComponent("정릉");

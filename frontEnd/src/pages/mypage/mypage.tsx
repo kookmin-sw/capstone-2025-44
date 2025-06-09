@@ -37,13 +37,12 @@ export const Mypage = () => {
       wrapperRef.current.scrollTop = 0;
     }
   };
-  
+
   const menuItems = [
     { id: 1, title: "홈", path: "/mypage" },
     { id: 2, title: "공지사항", path: "/notice" },
     { id: 3, title: "신문", path: "/news" },
-    { id: 4, title: "뱃지함", path: "/badge" },
-    { id: 5, title: "연락처", path: "/contact" }
+    { id: 4, title: "연락처", path: "/contact" }
   ];
 
   const toggleSidebar = () => {
@@ -52,7 +51,7 @@ export const Mypage = () => {
 
   return (
     <PageContainer>
-      <Sidebar 
+      <Sidebar
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
         menuItems={menuItems}

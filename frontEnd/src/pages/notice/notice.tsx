@@ -1,15 +1,18 @@
 import { useEffect, useState, useRef } from "react";
 import { styled } from "styled-components";
+
 import { collection, addDoc, getDocs, orderBy, query, Timestamp, doc, getDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
-import { db } from "@/lib/firebase";
 
+import { db } from "@/lib/firebase";
 import { AppBar } from "@/components/common/app-bar";
 import { Sidebar } from "@/components/sidebar";
 import { colorTheme } from "@/style/color-theme";
+
 import noticeImage1 from "@/assets/images/notice1.png";
 import noticeImage2 from "@/assets/images/notice2.png";
 import noticeImage3 from "@/assets/images/notice3.png";
+
 
 //  공지 목록 상태
 interface Notice {
@@ -34,11 +37,11 @@ export const NoticePage = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
-  
+
   // 사용자가 관리자인지 확인
   useEffect(() => {
     const auth = getAuth();
-    
+
     // 사용자 인증을 처리하기 위한 별도의 비동기 함수
     const checkAdminStatus = async (user: User | null) => {
       if (user) {
@@ -46,7 +49,7 @@ export const NoticePage = () => {
           // 방법1: 사용자 정의 claims 확인
           const idTokenResult = await user.getIdTokenResult();
           const hasAdminClaim = idTokenResult.claims.admin === true;
-          
+
           if (hasAdminClaim) {
             setIsAdmin(true);
           } else {
@@ -64,15 +67,15 @@ export const NoticePage = () => {
       }
       setIsAuthLoading(false);
     };
-    
+
     // 비동기 콜백 사용 안함
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       void checkAdminStatus(user);
     });
-    
+
     return () => unsubscribe();
   }, []);
-  
+
   const noticeImages = [
     {
       id: 1,
@@ -108,13 +111,13 @@ export const NoticePage = () => {
   };
 
   const handlePrevClick = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? noticeImages.length - 1 : prevIndex - 1
     );
   };
 
   const handleNextClick = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === noticeImages.length - 1 ? 0 : prevIndex + 1
     );
   };
@@ -126,10 +129,10 @@ export const NoticePage = () => {
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
-    
+
     touchEndX.current = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX.current;
-    
+
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
         handleNextClick();
@@ -137,27 +140,27 @@ export const NoticePage = () => {
         handlePrevClick();
       }
     }
-    
+
     touchStartX.current = null;
     touchEndX.current = null;
   };
-  
+
   const handlePageTouchStart = (e: React.TouchEvent) => {
     if (e.touches[0].clientX < 30) {
       touchStartX.current = e.touches[0].clientX;
     }
   };
-  
+
   const handlePageTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
-    
+
     touchEndX.current = e.changedTouches[0].clientX;
     const diff = touchEndX.current - touchStartX.current;
-    
+
     if (diff > 50 && !isSidebarOpen && touchStartX.current < 30) {
       setIsSidebarOpen(true);
     }
-    
+
     touchStartX.current = null;
     touchEndX.current = null;
   };
@@ -176,7 +179,7 @@ export const NoticePage = () => {
       const noticeQuery = query(collection(db, "notices"), orderBy("createdAt", "desc"));
       const querySnapshot = await getDocs(noticeQuery);
       const noticeList: Notice[] = [];
-      
+
       querySnapshot.forEach((doc) => {
         const data = doc.data();
         const createdAtTimestamp = data.createdAt as Timestamp;
@@ -188,7 +191,7 @@ export const NoticePage = () => {
           createdAt: createdAtTimestamp
         });
       });
-      
+
       setNotices(noticeList);
     } catch (error) {
       console.error("공지사항 게시에 실패했습니다.:", error);
@@ -198,19 +201,19 @@ export const NoticePage = () => {
   // 공지사항 추가
   const addNotice = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!newNotice.title || !newNotice.content) {
       alert("제목과 내용을 입력해주세요");
       return;
     }
-    
+
     try {
       const docRef = await addDoc(collection(db, "notices"), {
         title: newNotice.title,
         content: newNotice.content,
         createdAt: Timestamp.now()
       });
-      
+
       console.log("공지사항이 게재되었습니다.，ID:", docRef.id);
       setNewNotice({ title: "", content: "" });
       setIsFormOpen(false);
@@ -260,7 +263,7 @@ export const NoticePage = () => {
       <ContentWrapper>
         <ImageNotice>
           <ImageNoticeContent>
-            <ImageSlider 
+            <ImageSlider
               ref={sliderRef}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
@@ -282,8 +285,8 @@ export const NoticePage = () => {
               </SliderButton>
               <ImageIndicators>
                 {noticeImages.map((_, index) => (
-                  <Indicator 
-                    key={index} 
+                  <Indicator
+                    key={index}
                     active={index === currentImageIndex}
                     onClick={() => setCurrentImageIndex(index)}
                   />
@@ -295,16 +298,16 @@ export const NoticePage = () => {
             </ButtonContainer>
           </ImageNoticeContent>
         </ImageNotice>
-        
+
         {/* 관리자만 공지사항 게시 가능 */}
         {isAdmin && (
           <AddNoticeSection>
             <AddNoticeButton onClick={() => setIsFormOpen(!isFormOpen)}>
               {isFormOpen ? "취소" : "새 공지사항 게시"}
             </AddNoticeButton>
-            
+
             {isFormOpen && (
-              <NoticeForm 
+              <NoticeForm
                 onSubmit={(e) => {
                   void addNotice(e);
                 }}
@@ -329,7 +332,7 @@ export const NoticePage = () => {
             )}
           </AddNoticeSection>
         )}
-        
+
         <NoticeList>
           {notices.map((notice) => (
             <NoticeItem key={notice.id}>
@@ -340,9 +343,9 @@ export const NoticePage = () => {
           ))}
         </NoticeList>
       </ContentWrapper>
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={closeSidebar} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={closeSidebar}
         menuItems={menuItems}
       />
     </Wrapper>

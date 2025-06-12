@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 import { ReactComponent as LoginIcon } from "@/assets/icons/login-icon.svg";
 import { GoogleButton } from "@/components/login/google-button";
 import { KakaoButton } from "@/components/login/kakao-button";
+//import { createGuestProfile } from '@/hooks/queries/useGetProfile';
 import { colorTheme } from "@/style/color-theme";
-import { createGuestProfile } from '@/hooks/queries/useGetProfile';
 // import { devLog } from "@/utils/dev-log";
 // import { Modal } from "@/components/common/modal";
 
@@ -22,7 +22,7 @@ type PromptType = {
 export const LoginPage = () => {
   // const [ready, _] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const navigate = useNavigate();
+//  const navigate = useNavigate();
 
   // Not used
   const [_, setDeferredPrompt] = useState<PromptType | null>(null);
@@ -51,23 +51,23 @@ export const LoginPage = () => {
   // };
 
   // guest모드
-  const handleGuestLogin = () => {
+  //const handleGuestLogin = () => {
+  //
+  //  const guestProfile = createGuestProfile();
 
-    const guestProfile = createGuestProfile();
 
-
-    localStorage.setItem("accessToken", "guest_token");
-    localStorage.setItem("refreshToken", "guest_refresh_token");
-    localStorage.setItem("userId", "0");
-    localStorage.setItem("role", "ROLE_USER");
-    localStorage.setItem("nickName", guestProfile.nickName);
+  //  localStorage.setItem("accessToken", "guest_token");
+  //  localStorage.setItem("refreshToken", "guest_refresh_token");
+  //  localStorage.setItem("userId", "0");
+  //  localStorage.setItem("role", "ROLE_USER");
+  //  localStorage.setItem("nickName", guestProfile.nickName);
     
  
-    localStorage.setItem("guestProfile", JSON.stringify(guestProfile));
+  //  localStorage.setItem("guestProfile", JSON.stringify(guestProfile));
     
 
-    navigate("/post");
-  };
+  //  navigate("/post");
+  //};
 
   useEffect(() => {
     if (sessionStorage.getItem("isLoading") === "true") setIsLoading(true);
@@ -153,22 +153,22 @@ const ButtonContainer = styled.div`
 `;
 
 
-const GuestButton = styled.button`
-  width: 50vw;
-  max-width: 200px;
-  height: 40px;
-  background-color: #f0f0f0;
-  border: none;
-  border-radius: 8px;
-  color: #666;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s;
+//const GuestButton = styled.button`
+//  width: 50vw;
+//  max-width: 200px;
+//  height: 40px;
+//  background-color: #f0f0f0;
+//  border: none;
+//  border-radius: 8px;
+//  color: #666;
+//  font-size: 16px;
+//  cursor: pointer;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//  transition: background-color 0.3s;
 
-  &:hover {
-    background-color: #e0e0e0;
-  }
-`;
+//  &:hover {
+//    background-color: #e0e0e0;
+//  }
+//`;

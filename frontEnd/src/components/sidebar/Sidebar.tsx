@@ -10,10 +10,9 @@ interface SidebarProps {
     title: string;
     path: string;
   }>;
-  currentPath?: string;
 }
 
-export const Sidebar = ({ isOpen, onClose, menuItems, currentPath }: SidebarProps) => {
+export const Sidebar = ({ isOpen, onClose, menuItems}: SidebarProps) => {
   const handleNavigation = (path: string) => {
     window.location.href = path;
   };

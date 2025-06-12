@@ -1,17 +1,16 @@
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import { collection, addDoc, getDocs, orderBy, query, Timestamp, doc, getDoc } from "firebase/firestore";
 import { useEffect, useState, useRef } from "react";
 import { styled } from "styled-components";
 
-import { collection, addDoc, getDocs, orderBy, query, Timestamp, doc, getDoc } from "firebase/firestore";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
-
-import { db } from "@/lib/firebase";
-import { AppBar } from "@/components/common/app-bar";
-import { Sidebar } from "@/components/sidebar";
-import { colorTheme } from "@/style/color-theme";
 
 import noticeImage1 from "@/assets/images/notice1.png";
 import noticeImage2 from "@/assets/images/notice2.png";
 import noticeImage3 from "@/assets/images/notice3.png";
+import { AppBar } from "@/components/common/app-bar";
+import { Sidebar } from "@/components/sidebar";
+import { db } from "@/lib/firebase";
+import { colorTheme } from "@/style/color-theme";
 
 
 //  공지 목록 상태
@@ -28,7 +27,7 @@ export const NoticePage = () => {
   const [newNotice, setNewNotice] = useState({ title: "", content: "" });
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isAuthLoading, setIsAuthLoading] = useState(true);
+//  const [isAuthLoading, setIsAuthLoading] = useState(true);
 
   //  사이드바 상태
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -64,7 +63,7 @@ export const NoticePage = () => {
       } else {
         setIsAdmin(false);
       }
-      setIsAuthLoading(false);
+    //  setIsAuthLoading(false);
     };
 
     // 비동기 콜백 사용 안함

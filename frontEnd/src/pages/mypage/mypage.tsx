@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from "react";
+//import { useLocation } from "react-router-dom";
 import { styled } from "styled-components";
-import { useLocation } from "react-router-dom";
 
 import { AppBar } from "@/components/common/app-bar";
-import { Sidebar } from "@/components/sidebar";
 import { ToggleSwitchVer2 } from "@/components/common/toggle-switch-ver2";
 import { MypageList } from "@/components/mypage/mypage-list";
 import { MypageListProfile } from "@/components/mypage/mypage-list-profile";
 import { MypageUpButton } from "@/components/mypage/mypage-up-button";
+import { Sidebar } from "@/components/sidebar";
 import { colorTheme } from "@/style/color-theme";
 
 export const Mypage = () => {
   const [isLeftSelected, setIsLeftSelected] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const location = useLocation();
+//  const location = useLocation();
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [miniButtonVisible, setMiniButtonVisible] = useState(false);
@@ -55,7 +55,6 @@ export const Mypage = () => {
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
         menuItems={menuItems}
-        currentPath={location.pathname}
       />
       <MainContent $isSidebarOpen={isSidebarOpen}>
         <Wrapper ref={wrapperRef}>

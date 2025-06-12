@@ -1,8 +1,9 @@
+import { useState, useEffect } from "react";
 import { styled } from "styled-components";
+
 import { AppBar } from "@/components/common/app-bar";
 import { Sidebar } from "@/components/sidebar";
 import { colorTheme } from "@/style/color-theme";
-import { useState, useEffect } from "react";
 
 interface NewsItem {
   title: string;

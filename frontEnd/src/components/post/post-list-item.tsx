@@ -128,7 +128,7 @@ const TopIcon = styled.img`
 `;
 
 const StateSpan = styled.span`
-  font-size: 0.83rem;
+  font-size: 1rem;
 `;
 //http://localhost:3000/post 주소, 시간 크기 조절로 추정
 

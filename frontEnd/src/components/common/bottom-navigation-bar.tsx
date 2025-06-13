@@ -75,7 +75,7 @@ export const BottomNavigationBar = () => {
             fontWeight: currentUrl == "post" ? "bold" : "normal",
           }}
         >
-          전체 게시물
+          게시물
         </ButtonText>
       </NavigateButton>
       <NavigateButton

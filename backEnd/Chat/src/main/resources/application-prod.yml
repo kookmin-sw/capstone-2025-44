@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: prod-eum-chat
+
+  data:
+    mongodb:
+      host: ${PROD_MONGO_HOST}
+      database: ${PROD_DB}
+
+server:
+  port: ${PROD_PORT}
+
+haetsal-url: ${PROD_HAETSAL_URL}
